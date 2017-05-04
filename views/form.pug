@@ -1,0 +1,44 @@
+extends ./templates/review
+
+block append config
+	-var pageStyle= "";
+
+block main
+	div
+		h2.text-center What's the vibe?
+		form
+			label Rate your experience (1-5)     
+			input
+			br
+
+			label What year did you go?
+			input
+			br
+
+			label How was security?
+					input(type= "radio")
+					label Tight
+					input(type= "radio")
+					label Average
+					input(type= "radio")
+					label Lax
+			br
+
+			label How was the sound quality?
+					input(type= "radio")
+					label Meh
+					input(type= "radio")
+					label Average
+					input(type= "radio")
+					label Bumpin'
+			br
+
+			label Tell us about your experience
+			input
+			br
+
+			label Tags:
+			input
+			br
+
+			button submit

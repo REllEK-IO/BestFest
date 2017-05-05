@@ -18,18 +18,18 @@ module.exports = function(app) {
   });
 
   // cms route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  app.get("/form", function(req, res) {
+    res.render("form", null);
   });
 
   // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  app.get("/search", function(req, res) {
+    res.render("search", null);
   });
 
   // authors route loads author-manager.html
-  app.get("/authors", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/author-manager.html"));
+  app.get("/festival", function(req, res) {
+    res.redirect("/");
   });
 
 };

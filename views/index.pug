@@ -1,0 +1,24 @@
+extends ./templates/main
+
+block append style
+	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
+	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
+
+block main
+	.row
+		#slide-show.container-fluid.parent
+				//- .block-center.input-group.search-group.child
+				//- 	input#srch-term.input-medium.search-query(name="srch-term", type="text", placeholder="Search Here")
+				//- 	.input-group-btn
+				//- 		button.btn.btn-success.btn-sm(type="submit")
+				//- 			i.fa.fa-search(aria-hidden="true")
+				form.form-inline.global-search(role='form')
+					.form-group
+						label.sr-only(for='') Enter search terms
+						|  
+						input#k.form-control(type='search', name='k', placeholder='Enter search terms')
+						|  
+						input#cn(name='cn', type='hidden', value='false')
+					|  
+					button#s.btn.btn-default(type='submit')
+						span.glyphicon.glyphicon-search

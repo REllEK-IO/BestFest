@@ -16,17 +16,21 @@ module.exports = function(app) {
     res.render("construction",null);
   });
 
-  // cms route loads cms.html
+  app.get("/index", function(req, res) {
+    res.render("index",null);
+  });
+
+  // from route loads cms.html
   app.get("/form", function(req, res) {
     res.render("form", null);
   });
 
-  // blog route loads blog.html
+  // search route loads blog.html
   app.get("/search", function(req, res) {
     res.render("search", null);
   });
 
-  // authors route loads author-manager.html
+  // festivals route loads author-manager.html
   app.get("/festival", function(req, res) {
     res.redirect("/");
   });

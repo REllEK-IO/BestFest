@@ -21,3 +21,52 @@ body {
 button {
     margin-top: 6px;
 }
+
+h4 {
+    font-size: smaller;
+    color: grey;
+}
+
+.footer {
+    background-color: rgba(50, 50, 50, .5);
+    height: 50px;
+    margin-top: 20px;
+}
+
+.black-bg {
+    background-color: black;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.navbar-dark {
+    background-color: #321f4b;
+    color: white;
+    border-radius: 0;
+}
+
+.navbar-dark a {
+    color: white !important;
+}
+
+.navbar-dark a:hover {
+    color: white !important;
+    text-shadow: 0 0 2px white;
+}
+
+.active {
+    border-radius: 0px;
+    border: 0;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.active:hover {
+    background-color: white;
+}

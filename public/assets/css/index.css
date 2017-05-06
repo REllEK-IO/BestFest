@@ -7,29 +7,6 @@ button {
     margin-top: 0px;
 }
 
-h4 {
-    font-size: smaller;
-    color: grey;
-}
-
-.footer {
-    background-color: rgba(50, 50, 50, .5);
-    height: 50px;
-    margin-top: 20px;
-}
-
-.black-bg {
-    background-color: black;
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
 .bar-content {
     padding: 10px;
     margin: 15px;
@@ -41,12 +18,12 @@ h4 {
     color: white;
 }
 
-.active {
+.activeIndex {
     border-radius: 9px;
     border: 2px solid rgba(150, 150, 150, .5);
 }
 
-.active:hover {
+.activeIndex:hover {
     background-color: white;
     color: black;
 }

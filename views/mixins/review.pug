@@ -7,7 +7,7 @@ mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review
 	- var security = (typeof security === "undefined") ? "Tight" : security
 	- var cost = (typeof cost === "undefined") ? "Mucho Dinero" : cost
 	//- 
-	//- Create loop for stars
+	-var stars = (typeof stars === "integer") ? stars : 4
 	- var review = (typeof review === "undefined") ? "Anon was here" : review
 	.row.user-info
 		.col-md-4.user-profile
@@ -21,11 +21,17 @@ mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review
 		.col-md-8.user-review-container
 			h3#user-vibez Vibez
 			.user-star-ratings
-			span#one-star ☆
-			span#two-stars ☆
-			span#three-stars ☆
-			span#four-stars ☆
-			span#five-stars ☆
+			-for(var i = 0; i < stars; i++){
+				i.fa.fa-star(aria-hidden="true")
+			-}
+			-for(var i = 0; i < (5 - stars); i++){
+				i.fa.fa-star-o(aria-hidden="true")
+			-}
+			//- span#one-star ☆
+			//- span#two-stars ☆
+			//- span#three-stars ☆
+			//- span#four-stars ☆
+			//- span#five-stars ☆
 			p#user-text-review Too many weirdos named Andrew and teeny-boppers named Karth. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante suscipit, hendrerit turpis vitae, euismod dolor. Curabitur eget dictum tortor. Fusce finibus ullamcorper nunc vitae malesuada. 
 			.user-tags
 			#user-tag Good Times

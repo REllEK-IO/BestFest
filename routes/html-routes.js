@@ -11,28 +11,28 @@ var path = require("path");
 module.exports = function(app) {
 
 
-  // index route loads view.html
-  app.get("/", function(req, res) {
-    res.render("construction",null);
-  });
+    // index route loads view.html
+    app.get("/", function(req, res) {
+        res.render("construction", null);
+    });
 
-  app.get("/index", function(req, res) {
-    res.render("index",null);
-  });
+    app.get("/index", function(req, res) {
+        res.render("index", null);
+    });
 
-  // from route loads cms.html
-  app.get("/form", function(req, res) {
-    res.render("form", null);
-  });
+    // from route loads cms.html
+    app.get("/form", function(req, res) {
+        res.render("form", null);
+    });
 
-  // search route loads blog.html
-  app.get("/search", function(req, res) {
-    res.render("search", null);
-  });
+    // search route loads blog.html
+    app.get("/search", function(req, res) {
+        res.render("search", null);
+    });
 
-  // festivals route loads author-manager.html
-  app.get("/festival", function(req, res) {
-    res.redirect("/");
-  });
+    // festivals route loads author-manager.html
+    app.get("/festival", function(req, res) {
+        res.render("festival", null);
+    });
 
 };

@@ -1,74 +1,61 @@
-extends ./templates/layout
+extends ./templates/main
 
-block append config
- -var pageStyle= "";
+block append style
+  link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
+  link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
 
 block main
- .container
-  .row
-   .col-lg-1#festival-info-container 
-    .col-md-6
-     h1#festival-name Coachella
-    .col-md-6#avg-festival-rating
-     h2#vibez Overall Vibez
-     .star-rating
-      span#one-star ☆
-      span#two-stars ☆
-      span#three-stars ☆
-      span#four-stars ☆
-      span#five-stars ☆ 
+  .container
     .row
-     .col-md-6.festival-basics
-      ul#festival-information
-       li Location: #[span#festival-location Indio]
-       li Dates: #[span#festival-dates 4/21/17]
-       li Camping: #[span#festival-camping Yes]
-       li Website: #[span#festival-website] #[a#festival-website-link https://www.coachella.com/]
-     .col-md-6
-      img.festival-pictures#festival-pic(src="../assets/images/coachella.jpg" alt="Image Title")
-    .row#summary
-     .col-lg-1#festival-summary
-      h3 Summary
-      p Coachella Music and Arts Festival occurss in the deserts of Indio, California each year. For two weekends in April, you can join the riff-raff with other young, beautiful, and often times wealthy people while you watch some of the greatest (and not so greatest) bands perform. Often times there will be special guests or bands reuniting. 
-   .row#user-reviews-container
-    h2#reviews-header Festival Reviews
-    .row#newest-review
-     .col-lg-1
-      .row.user-info
-       .col-med-4#user-profile
-        img#user-avatar(src="../assets/images/user1avatar.png" altuseravatar1="user avatar")
-        h6#date-header Date Posted #[span#date-posted May 1, 2017]
-        ul.user-other-ratings
-         li Sound: #[span#festival-sound Bumpen']
-         li Crowd: #[span#festival-crowd Chill]
-         li Security: #[span#festival-security Tight]
-         li Cost: #[span#festival-security Mucho Dinero]
-       .col-med-8.user-review-container
-        h3#user-vibez Vibez
-        .user-star-ratings
-         span#one-star ☆
-         span#two-stars ☆
-         span#three-stars ☆
-         span#four-stars ☆
-         span#five-stars ☆
-        p#user-text-review Too many weirdos named Andrew and teeny-boppers named Karth. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante suscipit, hendrerit turpis vitae, euismod dolor. Curabitur eget dictum tortor. Fusce finibus ullamcorper nunc vitae malesuada. 
-        .user-tags
-         #user-tag Good Times
-         #user-tag Too hot
-         #user-tag Bring shoes
-
-        
-       
-
-    
-
-
-
-       	
-       
-     
-
-     
-  	   
-       
-      
+      .col-lg-1
+      .col-lg-10.black-bg#festival-info-container 
+        .col-md-6
+          h1#festival-name Coachella
+        .col-md-6#avg-festival-rating
+          h2#vibez Overall Vibez
+        .star-rating
+          span#one-star ☆
+          span#two-stars ☆
+          span#three-stars ☆
+          span#four-stars ☆
+          span#five-stars ☆ 
+        .row
+        .col-md-6.festival-basics
+          ul#festival-information
+          li Location: #[span#festival-location Indio]
+          li Dates: #[span#festival-dates 4/21/17]
+          li Camping: #[span#festival-camping Yes]
+          li Website: #[span#festival-website] #[a#festival-website-link https://www.coachella.com/]
+        .col-md-6
+          img.festival-pictures#festival-pic(src="../assets/images/coachella.jpg" alt="Image Title")
+        .row#summary
+        .col-lg-12#festival-summary
+          h3 Summary
+          p Coachella Music and Arts Festival occurss in the deserts of Indio, California each year. For two weekends in April, you can join the riff-raff with other young, beautiful, and often times wealthy people while you watch some of the greatest (and not so greatest) bands perform. Often times there will be special guests or bands reuniting. 
+    .row#user-reviews-container
+      .row#newest-review
+      h2#reviews-header.text-center Festival Reviews
+      .col-lg-1
+      .col-lg-10.black-bg
+        .row.user-info
+        .col-md-4#user-profile
+          img#user-avatar(src="../assets/images/user1avatar.png" altuseravatar1="user avatar")
+          h6#date-header Date Posted #[span#date-posted May 1, 2017]
+          ul.user-other-ratings
+          li Sound: #[span#festival-sound Bumpen']
+          li Crowd: #[span#festival-crowd Chill]
+          li Security: #[span#festival-security Tight]
+          li Cost: #[span#festival-security Mucho Dinero]
+        .col-md-8.user-review-container
+          h3#user-vibez Vibez
+          .user-star-ratings
+          span#one-star ☆
+          span#two-stars ☆
+          span#three-stars ☆
+          span#four-stars ☆
+          span#five-stars ☆
+          p#user-text-review Too many weirdos named Andrew and teeny-boppers named Karth. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante suscipit, hendrerit turpis vitae, euismod dolor. Curabitur eget dictum tortor. Fusce finibus ullamcorper nunc vitae malesuada. 
+          .user-tags
+          #user-tag Good Times
+          #user-tag Too hot
+          #user-tag Bring shoes

@@ -10,26 +10,29 @@ var path = require("path");
 // =============================================================
 module.exports = function(app) {
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.render("festival",null);
+    res.render("construction",null);
   });
 
-  // cms route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  app.get("/index", function(req, res) {
+    res.render("index",null);
   });
 
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  // from route loads cms.html
+  app.get("/form", function(req, res) {
+    res.render("form", null);
   });
 
-  // authors route loads author-manager.html
-  app.get("/authors", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/author-manager.html"));
+  // search route loads blog.html
+  app.get("/search", function(req, res) {
+    res.render("search", null);
+  });
+
+  // festivals route loads author-manager.html
+  app.get("/festival", function(req, res) {
+    res.redirect("/");
   });
 
 };

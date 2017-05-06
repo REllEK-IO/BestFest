@@ -1,8 +1,32 @@
 extends ./templates/layout
 
-block append config
-    -var pageStyle= "";
+block append style
+	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
+	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
 
 block main
-    div
-        h2.text-center Welcome to the index that extends the main layout
+	.row
+		#slide-show.container-fluid
+			.left.bar-content.active Home
+			.left.bar-content Share Your Vibe
+			.left.bar-content Festivals
+			.left.bar-content Gear
+			.right.bar-content Login 
+			.right.bar-content.active Sign Up
+			img#festivibez(src="./assets/img/festivibez_logo.svg", alt="Festivibez")
+			form.form-inline.global-search(role='form')
+				.form-group
+					label.sr-only(for='') Enter search terms
+					|  
+					input#k.form-control(type='search', name='k', placeholder='Enter search terms')
+					|  
+					input#cn(name='cn', type='hidden', value='false')
+				|  
+				button#s.btn.btn-default(type='submit')
+					span.glyphicon.glyphicon-search
+			.bottom-right
+				i.fa.fa-angle-left.arrow(aria-hidden="true")
+				i.fa.fa-angle-right.arrow(aria-hidden="true")
+	.row
+		.block-center
+			h1.text-center Fill with continous pages with proxy data...

@@ -5,7 +5,7 @@ block append style
   link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
   link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
   link(href="./assets/css/festival.css", rel="stylesheet" media="screen" title="no title")
-  link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
   .row.festival-wrapper
@@ -15,12 +15,12 @@ block main
         h1#festival-name COACHELLA
         hr.line
         ul.festival-information
-        li Location: #[span.festival-location Indio]
-        li Dates: #[span.festival-dates 4/21/17]
-        li Camping: #[span.festival-camping Yes]
-        li Website: #[span.festival-website] #[a#festival-website-link https://www.coachella.com/]
+         li Location: #[span.festival-location Indio]
+         li Dates: #[span.festival-dates 4/21/17]
+         li Camping: #[span.festival-camping Yes]
+         li Website: #[span.festival-website] #[a#festival-website-link href= https://www.coachella.com/]
         h3.festival-summary Summary
-        p Coachella Music and Arts Festival occurss in the deserts of Indio, California each year. For two weekends in April, you can join the riff-raff with other young, beautiful, and often times wealthy people while you watch some of the greatest (and not so greatest) bands perform. Often times there will be special guests or bands reuniting. 
+        p#summary Coachella Music and Arts Festival occurss in the deserts of Indio, California each year. For two weekends in April, you can join the riff-raff with other young, beautiful, and often times wealthy people while you watch some of the greatest (and not so greatest) bands perform. Often times there will be special guests or bands reuniting. 
       .col-md-6.block2.avg-festival-rating
         h3#vibez VIBEZ
         .star-rating
@@ -35,7 +35,7 @@ block main
          //- span.stars#three-stars ☆
          //- span.stars#four-stars ☆
          //- span.stars#five-stars ☆ 
-        img.festival-pictures#festival-pic(src="../assets/images/coachella.jpg" alt="Image Title")
+        img.festival-pictures#festival-pic(href="coachella-big.jpg" target="_blank" src="../assets/images/coachella.jpg" alt="Image Title")
       //- .row
       //- .col-md-6.festival-basics
         
@@ -49,6 +49,6 @@ block main
     //- reviews
     .row
     .col-lg-1
-    .col-lg-10.black-bg
+    .col-lg-10.review-container
       +userReview()
       +userReview()

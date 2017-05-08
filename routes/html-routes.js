@@ -32,6 +32,9 @@ module.exports = function(app) {
 
     // festivals route loads author-manager.html
     app.get("/festival", function(req, res) {
+        //Get all review scores for festival
+        //average
+        //{}
         res.render("festival", null);
     });
 

@@ -42,7 +42,8 @@ module.exports = function(sequelize, DataTypes) {
                 // Associating Author with Posts
                 // When an Author is deleted, also delete any associated Posts
                 User.hasMany(models.Review, {
-                    onDelete: "cascade"
+                    onDelete: "cascade",
+                    foreignKey: "user_id"
                 });
             }
         }

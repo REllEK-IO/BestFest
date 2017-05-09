@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -38,4 +39,31 @@ module.exports = function(app) {
         res.render("festival", null);
     });
 
+    // app.get("/test", function(req, res){
+    //     db.User.create({
+    //         user_name: "Bob"
+    //     }).then((data) => {
+    //         console.log(data.dataValues.user_name);
+    //     })
+
+    //     db.User.create({
+    //         user_name: "Boob"
+    //     }).then((data) => {
+    //         console.log(data.dataValues.user_name);
+    //     })
+
+    //     db.Review.create({
+    //         festival: "Something",
+    //         overall: 5,
+    //         user_id: 2
+    //     },{
+    //         include: [db.User]
+    //     })
+
+    //     db.User.findAll({where: {
+    //         user_name: "Bob"
+    //     }}).then(function(data){
+    //         res.json(data);
+    //     });
+    // })
 };

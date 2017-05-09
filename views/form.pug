@@ -1,15 +1,17 @@
-extends ./templates/layout
+extends ./templates/main
 
-block append config
-	-var pageStyle= "";
+block append style
+	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
+	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
+	link(href="./assets/css/form.css", rel="stylesheet" media="screen" title="no title")
+	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
-	div
 		h2.text-center What's the vibe?
 
 		form(id= "main-form")
 
-			label Festival Name
+			label Festival Name:            
 				select
 					option 
 					option Beyond Wonderland
@@ -28,7 +30,7 @@ block main
 					option Symbiosis
 			br
 
-			label What year(s) did you go?
+			label What year did you go?         
 				select
 					option 
 					option 2017
@@ -51,8 +53,19 @@ block main
 					option 2000
 			br
 
-			label Rate your experience (1-5)     
-			input(id= "overall-rating" maxlength="1")
+			label Rate your experience
+				br
+				.rate
+					input#star5(type='radio', name='rate', value='5')
+					label(for='star5', title='text') 5 stars
+					input#star4(type='radio', name='rate', value='4')
+					label(for='star4', title='text') 4 stars
+					input#star3(type='radio', name='rate', value='3')
+					label(for='star3', title='text') 3 stars
+					input#star2(type='radio', name='rate', value='2')
+					label(for='star2', title='text') 2 stars
+					input#star1(type='radio', name='rate', value='1')
+					label(for='star1', title='text') 1 star
 			br
 
 			label Cost overall?
@@ -64,7 +77,7 @@ block main
 					label Pricey
 			br
 
-			label How was security?
+			label How was security?           
 					input(type= "radio" name="radAnswer2")
 					label Tight
 					input(type= "radio" name="radAnswer2")
@@ -73,7 +86,7 @@ block main
 					label Lax
 			br
 
-			label How was the sound quality?
+			label How was the sound quality?           
 					input(type= "radio" name="radAnswer3")
 					label Weak
 					input(type= "radio" name="radAnswer3")
@@ -82,7 +95,7 @@ block main
 					label Bumpin'
 			br
 
-			label Tell us more about your experience:
+			label Tell us more:
 			br
 			textarea(id= "text-review")
 			br

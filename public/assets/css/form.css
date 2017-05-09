@@ -44,16 +44,6 @@ button {
     margin-top: 6px;
 }
 
-h4 {
-    font-size: smaller;
-    color: grey;
-}
-
-input {
-    margin: 10px;
-}
-
-
 .rate {
   border: 1px solid #cccccc;
   float: left;
@@ -88,6 +78,21 @@ input {
     background-color: rgba(50, 50, 50, .5);
     height: 50px;
     margin-top: 20px;
+}
+
+input[name="radAnswer1"]{
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+input[name="radAnswer2"]{
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+input[name="radAnswer3"]{
+    margin-right: 2px;
+    margin-left: 5px;
 }
 
 .black-bg {

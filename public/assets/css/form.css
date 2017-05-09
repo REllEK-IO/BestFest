@@ -9,7 +9,7 @@ body {
     background-color: white;
     margin-left: 20%;
     margin-right: 20%;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 20px;
     text-align: center;
     border-radius: 6px;
@@ -93,6 +93,10 @@ input[name="radAnswer2"]{
 input[name="radAnswer3"]{
     margin-right: 2px;
     margin-left: 5px;
+}
+
+input[name="fname"]{
+    width: 400px;
 }
 
 .black-bg {

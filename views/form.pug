@@ -7,12 +7,13 @@ block append style
 	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
-		h2.text-center What's the vibe?
 
 		form(id= "main-form")
 
+			h2.text-center What's the vibe?
+
 			label Festival Name:            
-				select
+				select#select-name
 					option 
 					option Beyond Wonderland
 					option Coachella
@@ -31,7 +32,7 @@ block main
 			br
 
 			label What year did you go?         
-				select
+				select#select-year
 					option 
 					option 2017
 					option 2016
@@ -69,12 +70,12 @@ block main
 			br
 
 			label Cost overall?
-					input(type= "radio" name="radAnswer1")
-					label Cheap
-					input(type= "radio" name="radAnswer1")
-					label Average
-					input(type= "radio" name="radAnswer1")
-					label Pricey
+				input(type= "radio" name="radAnswer1")
+				label Cheap
+				input(type= "radio" name="radAnswer1")
+				label Average
+				input(type= "radio" name="radAnswer1")
+				label Pricey
 			br
 
 			label How was security?           
@@ -96,6 +97,8 @@ block main
 			br
 
 			label Tell us more:
+			br
+			input(type='text', name='fname', placeholder="Title")
 			br
 			textarea(id= "text-review")
 			br

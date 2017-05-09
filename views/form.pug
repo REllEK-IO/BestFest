@@ -8,99 +8,83 @@ block append style
 
 block main
 
-		form(id= "main-form")
+	form(id= "main-form")
 
-			h2.text-center What's the vibe?
+		h2.text-center What's the vibe?
 
-			label Festival Name:            
-				select#select-name
-					option 
-					option Beyond Wonderland
-					option Coachella
-					option CRSSD
-					option Desert Hearts
-					option Dirtybird Campout
-					option FYF
-					option Hard Summer
-					option Kaaboo
-					option Lightning in a Bottle
-					option Outsidelands
-					option Reggae on the River
-					option Snowglobe
-					option Stagecoach
-					option Symbiosis
+		label Festival Name:            
+			select#select-name(name='festival')
+				option 
+				option Beyond Wonderland
+				option Coachella
+				option CRSSD
+				option Desert Hearts
+				option Dirtybird Campout
+				option FYF
+				option Hard Summer
+				option Kaaboo
+				option Lightning in a Bottle
+				option Outsidelands
+				option Reggae on the River
+				option Snowglobe
+				option Stagecoach
+				option Symbiosis
+		br
+
+		div#year-select
+			label What year(s) did you go?         
+				input
+
+		label Rate your experience
 			br
+			.rate
+				input#star5(type='radio', name='overall', value='5')
+				label(for='star5', title='text') 5 stars
+				input#star4(type='radio', name='overall', value='4')
+				label(for='star4', title='text') 4 stars
+				input#star3(type='radio', name='overall', value='3')
+				label(for='star3', title='text') 3 stars
+				input#star2(type='radio', name='overall', value='2')
+				label(for='star2', title='text') 2 stars
+				input#star1(type='radio', name='overall', value='1')
+				label(for='star1', title='text') 1 star
+		br
 
-			label What year did you go?         
-				select#select-year
-					option 
-					option 2017
-					option 2016
-					option 2015
-					option 2014
-					option 2013
-					option 2012
-					option 2011
-					option 2010
-					option 2009
-					option 2008
-					option 2007
-					option 2006
-					option 2005
-					option 2004
-					option 2003
-					option 2002
-					option 2001
-					option 2000
-			br
+		label Cost overall?
+			input(type= "radio" name="cost")
+			label Cheap
+			input(type= "radio" name="cost")
+			label Average
+			input(type= "radio" name="cost")
+			label Pricey
+		br
 
-			label Rate your experience
-				br
-				.rate
-					input#star5(type='radio', name='rate', value='5')
-					label(for='star5', title='text') 5 stars
-					input#star4(type='radio', name='rate', value='4')
-					label(for='star4', title='text') 4 stars
-					input#star3(type='radio', name='rate', value='3')
-					label(for='star3', title='text') 3 stars
-					input#star2(type='radio', name='rate', value='2')
-					label(for='star2', title='text') 2 stars
-					input#star1(type='radio', name='rate', value='1')
-					label(for='star1', title='text') 1 star
-			br
-
-			label Cost overall?
-				input(type= "radio" name="radAnswer1")
-				label Cheap
-				input(type= "radio" name="radAnswer1")
+		label How was security?           
+				input(type= "radio" name="security")
+				label Tight
+				input(type= "radio" name="security")
 				label Average
-				input(type= "radio" name="radAnswer1")
-				label Pricey
-			br
+				input(type= "radio" name="security")
+				label Lax
+		br
 
-			label How was security?           
-					input(type= "radio" name="radAnswer2")
-					label Tight
-					input(type= "radio" name="radAnswer2")
-					label Average
-					input(type= "radio" name="radAnswer2")
-					label Lax
-			br
+		label How was the sound quality?           
+				input(type= "radio" name="sound")
+				label Weak
+				input(type= "radio" name="sound")
+				label Average
+				input(type= "radio" name="sound")
+				label Bumpin'
+		br
 
-			label How was the sound quality?           
-					input(type= "radio" name="radAnswer3")
-					label Weak
-					input(type= "radio" name="radAnswer3")
-					label Average
-					input(type= "radio" name="radAnswer3")
-					label Bumpin'
-			br
+		label Tell us more:
+		br
+		input(type='text', name='title', placeholder="Title")
+		br
+		textarea(id= "text-review", name='text_box')
+		br
 
-			label Tell us more:
-			br
-			input(type='text', name='fname', placeholder="Title")
-			br
-			textarea(id= "text-review")
-			br
+		button submit
 
-			button submit
+block scripts
+	script(src="./assets/js/form.js")

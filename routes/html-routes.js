@@ -30,6 +30,11 @@ module.exports = function(app) {
         res.render("search", null);
     });
 
+    // search route loads blog.html
+    app.get("/user", function(req, res) {
+        res.render("user", null);
+    });
+
     // festivals route loads author-manager.html
     app.get("/festival", function(req, res) {
         //Get all review scores for festival

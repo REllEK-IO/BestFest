@@ -40,6 +40,22 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
+        //Cost Score
+        cost: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
+        //Sound Score
+        sound: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
         //Text body
         text_box: {
             type: DataTypes.INTEGER,

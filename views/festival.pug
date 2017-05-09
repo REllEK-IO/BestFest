@@ -5,7 +5,7 @@ block append style
   link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
   link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
   link(href="./assets/css/festival.css", rel="stylesheet" media="screen" title="no title")
-  link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
+  //- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
   .row.festival-wrapper
@@ -52,3 +52,6 @@ block main
     .col-lg-10.review-container
       +userReview()
       +userReview()
+
+block scripts
+ scripts(src="./assets/js/reviews.js")

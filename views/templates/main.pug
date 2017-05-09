@@ -1,4 +1,6 @@
 include ../mixins/navbar.pug
+include ../mixins/temp.pug
+
 doctype html
 html
 	head
@@ -19,6 +21,9 @@ html
 	body
 		+navbar("FestiVibez", "main-nav", "dark", "#")
 			+nav_item("#", "dark", "active", "Test")
+		br
+		+tempUser()
+		br
 		block main
 			.container
 		footer

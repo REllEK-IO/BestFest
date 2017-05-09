@@ -24,10 +24,10 @@ mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review
 			h3#user-vibez VIBEZ
 			.user-star-ratings
 				-for(var i = 0; i < stars; i++){
-					.glyphicon.glyphicon-star(aria-hidden="true")
+					i.glyphicon.glyphicon-star(aria-hidden="true")
 				-}
 				-for(var i = 0; i < (5 - stars); i++){
-					.glyphicon.glyphicon-star-empty(aria-hidden="true")
+					i.glyphicon.glyphicon-star-empty(aria-hidden="true")
 				-}
 			//- span#one-star ☆
 			//- span#two-stars ☆
@@ -35,9 +35,11 @@ mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review
 			//- span#four-stars ☆
 			//- span#five-stars ☆
 			p#user-text-review Too many weirdos named Andrew and teeny-boppers named Karth. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante suscipit, hendrerit turpis vitae, euismod dolor. Curabitur eget dictum tortor. Fusce finibus ullamcorper nunc vitae malesuada. 
+			span#like-button
+				i.glyphicon.glyphicon-thumbs-up 
 			.user-tags
-				span#user-tag Too hot  
+				span#user-tag-1 Too hot  
 				| 
-				span#user-tag Bring shoes
+				span#user-tag-2 Bring shoes
 				| 
-				span#user-tag Sweet tunes
+				span#user-tag-3 Sweet tunes

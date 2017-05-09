@@ -10,30 +10,31 @@ module.exports = function(sequelize, DataTypes) {
         //Key from google
         key: {
             type: DataTypes.STRING,
-            allowNull: false,
+            //Change once have OAUTH
+            allowNull: true,
         },
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
-        },
-        //https://nodeontrain.xyz/tuts/secure_password/
-        password_digest: {
-            type: DataTypes.STRING,
-            validate: {
-                notEmpty: true
-            }
-        },
-        password: {
-            type: DataTypes.VIRTUAL,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
-        password_confirmation: {
-            type: DataTypes.VIRTUAL
         }
+        // //https://nodeontrain.xyz/tuts/secure_password/
+        // password_digest: {
+        //     type: DataTypes.STRING,
+        //     validate: {
+        //         notEmpty: true
+        //     }
+        // },
+        // password: {
+        //     type: DataTypes.VIRTUAL,
+        //     allowNull: false,
+        //     validate: {
+        //         notEmpty: true
+        //     }
+        // },
+        // password_confirmation: {
+        //     type: DataTypes.VIRTUAL
+        // }
     }, {
         // We're saying that we want our Author to have Posts
         classMethods: {

@@ -1,0 +1,12 @@
+mixin option(something)
+	- var something= something
+	option.options(val=something) !{something}
+
+mixin tempUser()
+	- var users= ["" , "Tempo","Beatz","Mixn","Rava"]
+	script(src="./assets/js/temp.js")
+	.temp-bar
+		h4.text-center User: 
+		select#select-user
+			each item in users
+					+option(item)

@@ -1,0 +1,129 @@
+body {
+    background-color: #493966;
+    color: blue;
+    font-size: 18px;
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/congruent_pentagon.png");
+}
+
+#main-form {
+    background-color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 5px 5px 30px black;
+    margin-top: -5px;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h2 {
+    letter-spacing: 3px;
+    background-color: #c0d0df;
+    padding: 15PX;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px black;
+    font-size: 50px;
+    margin-top: -5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    font-family: 'Audiowide', cursive;
+    margin-bottom: 20px;
+}
+
+#text-review {
+    width: 400px;
+    height: 200px;
+    text-align: top;
+}
+
+button {
+    margin-top: 6px;
+}
+
+h4 {
+    font-size: smaller;
+    color: grey;
+}
+
+input {
+    margin: 10px;
+}
+
+
+.rate {
+  border: 1px solid #cccccc;
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+.rate:not(:checked) > label:before { content: '★ '; }
+
+.rate > input:checked ~ label { color: #ffc700; }
+
+.rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label { color: #deb217; }
+
+.rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label { color: #c59b08; }
+
+.footer {
+    background-color: rgba(50, 50, 50, .5);
+    height: 50px;
+    margin-top: 20px;
+}
+
+.black-bg {
+    background-color: black;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.navbar-dark {
+    background-color: #321f4b;
+    color: white;
+    border-radius: 0;
+}
+
+.navbar-dark a {
+    color: white !important;
+}
+
+.navbar-dark a:hover {
+    color: white !important;
+    text-shadow: 0 0 2px white;
+}
+
+.active {
+    border-radius: 0px;
+    border: 0;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.active:hover {
+    background-color: white;
+}

@@ -23,6 +23,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        overall: {
+            type: DataTypes.DECIMAL,
+            allowNull: false
+        },
         genre: {
             type: DataTypes.STRING,
             allowNull: false

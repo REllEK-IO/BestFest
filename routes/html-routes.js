@@ -31,14 +31,29 @@ module.exports = function(app) {
         res.render("search", null);
     });
 
-    // festivals route loads author-manager.html
+    // If we have time. All Festivals render
     app.get("/festival", function(req, res) {
         //Get all review scores for festival
         //average
         //{}
         res.render("festival", null);
     });
+    //////This returns an html page of the festival of name if it exists. Otherwise 404
+    //
+    //@res.params.name
+    app.get("/festival/:name", function(req, res) {
+        //Query db.festival for props
+        //Create object for template
 
+        //Take Festival name from template object, then query Reviews for all of Festival Name
+        // where : { festival: name }
+        //Take Response and place in second Object
+
+        //Build Complete Template Object out of Festival + Reviews
+
+        //Pass Template Object here
+        res.render("festival", null);
+    });
     // app.get("/test", function(req, res){
     //     db.User.create({
     //         user_name: "Bob"

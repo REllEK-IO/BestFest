@@ -4,12 +4,13 @@ $(document).ready(function() {
     $("#select-user").change(function(data) {
         var str = "";
         $("select option:selected").each(function() {
-            str += $(this).text() + " ";
+            str += $(this).text();
         });
-        if (str != "") {
+        if (str.trim() !== "" || str.trim() !== " " || str !== undefined) {
             localStorage.setItem("userName", str);
+            console.log("User Name set to " + str);
         }
-        console.log("User Name set to " + str);
+
         // 	$.ajax({
         // 		type: "POST",
         // 		url: "http://" + window.location.host + "/api/user",

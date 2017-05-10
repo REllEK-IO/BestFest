@@ -18,7 +18,9 @@ block main
          li Location: #[span.festival-location Indio]
          li Dates: #[span.festival-dates 4/21/17]
          li Camping: #[span.festival-camping Yes]
-         li Website: #[span.festival-website] #[a#festival-website-link href= https://www.coachella.com/]
+         li Website: 
+           span.festival-website 
+             a(id ="festival-website-link" href= "https://www.coachella.com/") https://www.coachella.com/
         h3.festival-summary Summary
         p#summary Coachella Music and Arts Festival occurss in the deserts of Indio, California each year. For two weekends in April, you can join the riff-raff with other young, beautiful, and often times wealthy people while you watch some of the greatest (and not so greatest) bands perform. Often times there will be special guests or bands reuniting. 
       .col-md-6.block2.avg-festival-rating
@@ -48,8 +50,9 @@ block main
     h2#reviews-header.text-center REVIEWS
     //- reviews
     .row
-    .col-lg-1
-    .col-lg-10.review-container
+     .col-lg-1.noborder
+     .col-lg-10.review-container
+      +userReview()
       +userReview()
       +userReview()
 

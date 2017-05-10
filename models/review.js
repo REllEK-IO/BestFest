@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
         //Title of review
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         //Overall score of festival
         overall: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
             validate: {
                 len: [1]
             }
@@ -58,7 +58,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         //Text body
         text_box: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT,
             allowNull: true,
             validate: {
                 len: [1]
@@ -75,7 +75,7 @@ module.exports = function(sequelize, DataTypes) {
         //Thumbs up of this post
         thumbs: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             defaultValue: 0,
             validate: {
                 len: [1]
@@ -90,9 +90,7 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 Review.belongsTo(models.User, {
-                    foreignKey: {
-                        allowNull: false
-                    }
+                    foreignKey: "user_id"
                 });
             }
         }

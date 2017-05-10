@@ -37,6 +37,8 @@ require("./routes/html-routes.js")(app);
 require("./routes/review-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
+var testing = require("./testingScripts");
+
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({
     force: true
@@ -45,27 +47,6 @@ db.sequelize.sync({
         console.log("App listening on PORT " + PORT);
 
         //Create temp users delete for production
-
-        db.User.create({
-            user_name: "Tempo",
-            user_type: "user"
-        }).then(() => {
-            db.User.create({
-                user_name: "Beatz",
-                user_type: "user"
-            }).then(() => {
-                db.User.create({
-                    user_name: "Mixn",
-                    user_type: "admin"
-                }).then(() => {
-                    db.User.create({
-                        user_name: "Raza",
-                        user_type: "user"
-                    }).then(() => {
-                        console.log("Base users created");
-                    })
-                })
-            })
-        })
+        testing.run();
     });
 });

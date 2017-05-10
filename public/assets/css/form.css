@@ -1,27 +1,29 @@
 body {
-    background-color: #493966;
-    color: blue;
+    background-color: black;
+    color: black;
     font-size: 18px;
-    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/congruent_pentagon.png");
+}
+
+button{
 }
 
 #main-form {
     background-color: white;
     margin-left: 20%;
     margin-right: 20%;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 20px;
     text-align: center;
     border-radius: 6px;
     box-shadow: 5px 5px 30px black;
     margin-top: -5px;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 h2 {
     letter-spacing: 3px;
-    background-color: #c0d0df;
+    background-color: #B6D6F2;
     padding: 15PX;
     text-align: center;
     border-radius: 6px;
@@ -43,16 +45,6 @@ h2 {
 button {
     margin-top: 6px;
 }
-
-h4 {
-    font-size: smaller;
-    color: grey;
-}
-
-input {
-    margin: 10px;
-}
-
 
 .rate {
   border: 1px solid #cccccc;
@@ -78,7 +70,8 @@ input {
 
 .rate:not(:checked) > label:before { content: '★ '; }
 
-.rate > input:checked ~ label { color: #ffc700; }
+.rate > input:checked ~ label { color: #ffc700; 
+}
 
 .rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label { color: #deb217; }
 
@@ -88,6 +81,25 @@ input {
     background-color: rgba(50, 50, 50, .5);
     height: 50px;
     margin-top: 20px;
+}
+
+input[name="cost"]{
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+input[name="security"]{
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+input[name="sound"]{
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+input[name="title"]{
+    width: 400px;
 }
 
 .black-bg {

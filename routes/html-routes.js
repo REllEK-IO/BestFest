@@ -81,4 +81,13 @@ module.exports = function(app) {
     //         res.json(data);
     //     });
     // })
+
+    // Test pug's object insertions
+    app.get("/test", function(req, res) {
+        var objPug = {
+            something: "This goes into head 1",
+            example: "This goes into head 2"
+        }
+        res.render("test", objPug);
+    });
 };

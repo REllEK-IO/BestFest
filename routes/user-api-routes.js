@@ -1,6 +1,6 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
     // app.get("/api/authors", function(req, res) {
 
     // });
@@ -9,8 +9,8 @@ module.exports = function(app) {
 
     // });
 
-    app.post("/api/user", function(req, res) {
-        db.User.create(req.body).then(function(data) {
+    app.post("/api/user", function (req, res) {
+        db.User.create(req.body).then(function (data) {
             res.json(data);
         });
     });

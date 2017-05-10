@@ -17,6 +17,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
+        },
+        user_type: {
+            type : DataTypes.ENUM('user', 'admin'),
+            allowNull: false
         }
         // //https://nodeontrain.xyz/tuts/secure_password/
         // password_digest: {

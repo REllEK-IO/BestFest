@@ -17,9 +17,13 @@ var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(bodyParser.json({
+    type: "application/vnd.api+json"
+}));
 
 //Render Engine: pug
 app.set('view engine', 'pug');
@@ -34,8 +38,34 @@ require("./routes/review-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
+db.sequelize.sync({
+    force: true
+}).then(function () {
+    app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
+
+        //Create temp users delete for production
+
+        db.User.create({
+            user_name: "Tempo",
+            user_type: "user"
+        }).then(() => {
+            db.User.create({
+                user_name: "Beatz",
+                user_type: "user"
+            }).then(() => {
+                db.User.create({
+                    user_name: "Mixn",
+                    user_type: "admin"
+                }).then(() => {
+                    db.User.create({
+                        user_name: "Raza",
+                        user_type: "user"
+                    }).then(() => {
+                        console.log("Base users created");
+                    })
+                })
+            })
+        })
     });
 });

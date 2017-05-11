@@ -59,6 +59,23 @@ const SetUp = (function() {
         })
     }
 
+    var updateCreate = function() {
+        importData();
+        var festivalObj = JSON.parse(fs.readFileSync('file', 'utf8'));
+        var parsedFestival = [];
+        var i = 0;
+        if (i <= festivalObject.length) {
+            for(var j = 0; j < festivalObject.length; j++){
+                parsedFestival.push(parsedFestival(festivalObj[j]));
+            }
+            updateCreateCall(parsedFestival, i, updateCreateCall);
+        }
+        else{
+            console.log("Something went wrong at updateCreate!");
+        }
+
+    }
+
     var importData = function() {
         xlsxj({
             input: "./documents/festival info.xlsx",
@@ -72,22 +89,6 @@ const SetUp = (function() {
         });
     }
 
-    var updateCreate = function() {
-        var festivalObj = JSON.parse(fs.readFileSync('file', 'utf8'));
-        var i = 0;
-        if (i < festivalObject.length) {
-            var parsedFestival = pareseFestival(festivalObj[i]);
-            db.Festival.upsert(parsedFestival).then((data) => {
-                console.log("updateCreated Festival : " + festivalObj.name + " :/ " + data);
-            });
-        }
-
-    }
-
-    var updateCreateCall = function(i, ) {
-
-    }
-
     var parseFestival = function(festivalObj) {
         var parsedFestival = {};
 
@@ -97,7 +98,7 @@ const SetUp = (function() {
                     parsedFestival["name"] = festivalObj[key];
                     break;
                 case "Camping":
-                    if (parsedFestival["camping"] === "yes" || parsedFestival["camping"] === "no") ? parsedFestival["camping"] = festivalObj[key] : parsedFestival["camping"] = "no";
+                    parsedFestival["camping"] = (parsedFestival["camping"] === "yes" || parsedFestival["camping"] === "no") ?  festivalObj[key] : "no";
                     break;
                 case "genre":
                     parsedFestival["genre"] = festivalObj[key];
@@ -115,7 +116,7 @@ const SetUp = (function() {
                     parsedFestival["location"] = festivalObj[key];
                     break;
                 case "Summary":
-                    if (festivalObj[key].length <= 3000) parsedFestival["summary"] = festivalObj[key]: festivalObj[key].substring(0, 300) + parsedFestival["summary"] = ;
+                    parsedFestival["summary"] = (festivalObj[key].length <= 3000) ?  festivalObj[key]: festivalObj[key].substring(0, 300) + "...";
                     break;
                 case "img_url":
                     parsedFestival["img_url"] = festivalObj[key];
@@ -129,10 +130,18 @@ const SetUp = (function() {
         return parsedFestival;
     }
 
+    var updateCreateCall = function(parsedFestival, i, cb) {
+        db.Festival.upsert(parsedFestival[i]).then((data) => {
+                i++;
+                console.log("updateCreated Festival : " + festivalObj.name + " :/ " + data);
+                cb(parsedFestival, i, updateCreateCall);
+            })
+    }
+
 
     return {
         run: runScript,
-        importFestivals: importData
+        importFestivals: updateCreate
     }
 })();
 

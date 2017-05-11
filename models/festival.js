@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         summary: {
             type: DataTypes.TEXT,
             allowNull: true
-        }
+        },
         dates: {
             type: DataTypes.STRING,
             allowNull: true

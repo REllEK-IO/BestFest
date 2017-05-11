@@ -12,16 +12,24 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-    // GET route for getting all of the festival
+    // GET route for getting al(fl of the festival
     app.get("/api/festival", function(req, res) {
-
+        db.Festival.findAll({}).then(function(data){
+            res.json(data);
+        });      
     });
 
-    // Get rotue for retrieving a single post
-    app.get("/api/festival/:id", function(req, res) {
-
+    // =====Returns festival information base on festival name =======
+    app.get("/api/festival/:name", function(req, res){
+        db.Festival.findOne({
+            where: {
+                name: req.params.name
+            }
+        }).then(function(data){
+            res.json(data);
+        });
     });
-
+    // =====Posts new festival to database ======
     app.post("/api/festivals/add", function(req, res) {
       db.Festival.create({
         name: req.body.name,
@@ -33,11 +41,10 @@ module.exports = function(app) {
         img_url: req.body.img_url,
         location: req.body.location,
         optional: req.body.optional
-      }).then(function(results){
-        res.json(results);
+      }).then(function(data){
+        res.json(data);
       });
     });
-
 
     // POST route for saving a new post
     app.post("/api/review", function(req, res) {

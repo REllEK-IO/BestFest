@@ -39,7 +39,7 @@ require("./routes/user-api-routes.js")(app);
 require("./routes/festival-api-routes.js")(app);
 
 
-var testing = require("./testingScripts");
+var startUp = require("./startUpScripts");
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({
@@ -48,8 +48,7 @@ db.sequelize.sync({
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
 
-        //Create temp users delete for production
-        // testing.run();
-        testing.importFestivals();
+        //Imports spreadhseet into festivals, then creates test entities
+        startUp.importFestivals();
     });
 });

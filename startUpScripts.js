@@ -126,7 +126,6 @@ const SetUp = (function() {
                     break;
             }
         }
-        console.log(parsedFestival);
         return parsedFestival;
     }
 
@@ -140,6 +139,7 @@ const SetUp = (function() {
         }
         else{
             console.log("***All festivals in spreadsheet wrote into database***");
+            runScript();
         }
     }
 

@@ -46,14 +46,13 @@ module.exports = function(app) {
     //////This returns an html page of the festival of name if it exists. Otherwise 404
     //
     //@res.params.name
-    app.get("/festival/:name", function(req, res) {
+    app.get("/festival/by/:name", function(req, res) {
        
         // //Query db.festival for props
          db.Festival.findOne({
-            where:{ festival: req.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+            where:{ name: res.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
          }).then((data) => {
             console.log(data);
-
          });
         //Create object for template
 

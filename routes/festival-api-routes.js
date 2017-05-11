@@ -20,7 +20,7 @@ module.exports = function(app) {
     });
 
     // =====Returns festival information base on festival name =======
-    app.get("/api/festival/:name", function(req, res){
+    app.get("/api/festival/by/:name", function(req, res){
         db.Festival.findOne({
             where: {
                 name: req.params.name

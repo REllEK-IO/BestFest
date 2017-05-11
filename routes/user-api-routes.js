@@ -1,9 +1,9 @@
 var db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
     //Returns json of the requested user
     //To do add admin verification
-    app.get("/api/user/id/:id", function (req, res) {
+    app.get("/api/user/id/:id", function(req, res) {
         db.User.findOne({
             where: {
                 id: req.body.id
@@ -14,7 +14,7 @@ module.exports = function (app) {
     });
 
     //Returns json of the requested user
-    app.get("/api/user/name/:name", function (req, res) {
+    app.get("/api/user/name/:name", function(req, res) {
         db.User.findOne({
             where: {
                 id: req.body.name
@@ -25,18 +25,29 @@ module.exports = function (app) {
     });
 
     //Creates a user.
-    app.post("/api/user", function (req, res) {
-        db.User.create(req.body).then(function (data) {
+    app.post("/api/user", function(req, res) {
+        db.User.create(req.body).then(function(data) {
             res.json(data);
         });
     });
 
-    app.put("api/update/user/id", function(req, res){
+    app.put("api/update/user/id", function(req, res) {
+        if (req.body.name !== undefined && Number(req.params.id) === Number(req.body.id)) {
+            db.User.update({
+                where: {
+                    id: req.params.id
+                }
+            }).then((data) => {
+                res.json(data);
+            })
+        } else {
+            res.json({ err: "Invalid update" });
+        }
 
     });
 
     //Deletes user by id. Returns json of err or success
-    app.delete("/api/del/user/:id", function (req, res) {
+    app.delete("/api/del/user/:id", function(req, res) {
         //Find out if current user is an admin
         console.log(req.body);
         db.User.findOne({

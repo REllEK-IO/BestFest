@@ -22,7 +22,6 @@ module.exports = function(app) {
 
     });
 
-
     app.post("/api/festivals/add", function(req, res) {
       db.Festival.create({
         name: req.body.name,

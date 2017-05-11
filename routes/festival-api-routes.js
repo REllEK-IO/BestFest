@@ -23,6 +23,23 @@ module.exports = function(app) {
     });
 
 
+    app.post("/api/festivals/add", function(req, res) {
+      db.Festival.create({
+        name: req.body.name,
+        genre: req.body.genre,
+        overall: req.body.overall,
+        festival_type: req.body.Outdoor,
+        dates: req.body.dates,   
+        url: req.body.url,
+        img_url: req.body.img_url,
+        location: req.body.location,
+        optional: req.body.optional
+      }).then(function(results){
+        res.json(results);
+      });
+    });
+
+
     // POST route for saving a new post
     app.post("/api/review", function(req, res) {
         var newReview = {};

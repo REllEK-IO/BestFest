@@ -36,6 +36,8 @@ app.use(express.static("./public"));
 require("./routes/html-routes.js")(app);
 require("./routes/review-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
+require("./routes/festival-api-routes.js")(app);
+
 
 var testing = require("./testingScripts");
 

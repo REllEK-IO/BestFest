@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         overall: {
             type: DataTypes.DECIMAL,
-            allowNull: false
+            allowNull: true
         },
         genre: {
             type: DataTypes.STRING,

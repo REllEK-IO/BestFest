@@ -8,12 +8,24 @@ block append style
   link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css", rel="stylesheet" media="screen" title="no title")
 
 block main
- .row
-  .col-lg-1
-  .col-lg-10
-   .row
-    .col-lg-12
-      h1 Festival Name
+  .row
+    .col-lg-1
+    .col-lg-1.result-block
+      h3 image
+    .col-lg-2.result-block
+      h3 Festival Name
+    .col-lg-1.result-block
+      h3 Overall
+    .col-lg-1.result-block
+      h3 Genre
+    .col-lg-2.result-block
+      h3.text-center Location
+    .col-lg-2.result-block
+      h3 Dates
+    .col-lg-1.result-block
+      h3 Website
+    each val in data
+      +festivalList(val.img_url, val.name, val.overall, val.genre, val.location, val.dates, val.url)
 
 block scripts
   script(src="./assets/js/autocomplete.js")

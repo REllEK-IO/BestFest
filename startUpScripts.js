@@ -98,9 +98,9 @@ const SetUp = (function() {
                     parsedFestival["name"] = festivalObj[key];
                     break;
                 case "Camping":
-                    parsedFestival["camping"] = (parsedFestival["camping"] === "yes" || parsedFestival["camping"] === "no") ?  festivalObj[key] : "no";
+                    parsedFestival["camping"] = (festivalObj["Camping"].toLowerCase() === "yes" || festivalObj["Camping"].toLowerCase() === "no") ?  festivalObj[key] : "no";
                     break;
-                case "genre":
+                case "Genre":
                     parsedFestival["genre"] = festivalObj[key];
                     break;
                 case "festival_type":
@@ -118,7 +118,7 @@ const SetUp = (function() {
                 case "Summary":
                     parsedFestival["summary"] = (festivalObj[key].length <= 3000) ?  festivalObj[key]: festivalObj[key].substring(0, 300) + "...";
                     break;
-                case "img_url":
+                case "Img url":
                     parsedFestival["img_url"] = festivalObj[key];
                     break;
                 case "optional":

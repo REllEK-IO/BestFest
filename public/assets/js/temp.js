@@ -22,4 +22,4 @@ $(document).ready(function() {
 })
 
 
-$(option).text(2017).attr("val", 2017)
+// $(option).text(2017).attr("val", 2017)

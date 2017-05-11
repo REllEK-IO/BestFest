@@ -48,7 +48,7 @@ db.sequelize.sync({
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
 
-        //Create temp users delete for production
+        //Imports spreadhseet into festivals, then creates test entities
         startUp.importFestivals();
     });
 });

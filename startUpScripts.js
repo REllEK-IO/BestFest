@@ -95,34 +95,34 @@ const SetUp = (function() {
         for (key in festivalObj) {
             switch (key) {
                 case "Festival Name":
-                    parsedFestival["name"] = festivalObj[key];
+                    parsedFestival["name"] = festivalObj["Festival Name"];
                     break;
                 case "Camping":
-                    parsedFestival["camping"] = (festivalObj["Camping"].toLowerCase() === "yes" || festivalObj["Camping"].toLowerCase() === "no") ?  festivalObj[key] : "no";
+                    parsedFestival["camping"] = (festivalObj["Camping"].toLowerCase() === "yes" || festivalObj["Camping"].toLowerCase() === "no") ?  festivalObj["Camping"] : "no";
                     break;
                 case "Genre":
-                    parsedFestival["genre"] = festivalObj[key];
+                    parsedFestival["genre"] = festivalObj["Genre"];
                     break;
                 case "festival_type":
-                    parsedFestival["festival_type"] = festivalObj[key];
+                    parsedFestival["festival_type"] = festivalObj["festival_type"];
                     break;
                 case "Dates":
-                    parsedFestival["dates"] = festivalObj[key];
+                    parsedFestival["dates"] = festivalObj["Dates"];
                     break;
                 case "Website":
-                    parsedFestival["url"] = festivalObj[key];
+                    parsedFestival["url"] = festivalObj["Website"];
                     break;
                 case "Location":
-                    parsedFestival["location"] = festivalObj[key];
+                    parsedFestival["location"] = festivalObj["Location"];
                     break;
                 case "Summary":
                     parsedFestival["summary"] = (festivalObj[key].length <= 3000) ?  festivalObj[key]: festivalObj[key].substring(0, 300) + "...";
                     break;
                 case "Img url":
-                    parsedFestival["img_url"] = festivalObj[key];
+                    parsedFestival["img_url"] = festivalObj["Img url"];
                     break;
                 case "optional":
-                    parsedFestival["optional"] = festivalObj[key];
+                    parsedFestival["optional"] = festivalObj["optional"];
                     break;
             }
         }

@@ -28,7 +28,9 @@ module.exports = function(app) {
 
     // search route loads blog.html
     app.get("/search", function(req, res) {
-        res.render("search", null);
+        db.Festival.findAll({}).then(function(data){
+            res.render("search", { data : data});
+        });
     });
 
     // search route loads blog.html

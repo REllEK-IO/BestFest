@@ -93,7 +93,7 @@ module.exports = function(sequelize, DataTypes) {
                     foreignKey: "user_id"
                 });
                 Review.belongsTo(models.Festival, {
-                    foreignKey: "festival_id"
+                    foreignKey: "festival_id",
                 });
             }
         }

@@ -39,6 +39,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
+        summary: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
         dates: {
             type: DataTypes.STRING,
             allowNull: true

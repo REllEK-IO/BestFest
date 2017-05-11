@@ -6,7 +6,7 @@
 // Top Gear:(Optional tags)
 // Thumbs Up(Defaults: 1)
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     var Review = sequelize.define("Review", {
         //Title of review
         title: {
@@ -88,12 +88,15 @@ module.exports = function (sequelize, DataTypes) {
         }
     }, {
         classMethods: {
-            associate: function (models) {
+            associate: function(models) {
                 Review.belongsTo(models.User, {
                     foreignKey: "user_id"
                 });
+                Review.belongsTo(models.Festival, {
+                    foreignKey: "festival_id"
+                });
             }
         }
-    })
+    });
     return Review;
 };

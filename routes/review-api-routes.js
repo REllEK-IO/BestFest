@@ -108,7 +108,6 @@ module.exports = function(app) {
                 }
             })
             //Delete if same user or or Admin
-
     });
 
     // PUT route for updating posts

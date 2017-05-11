@@ -13,8 +13,20 @@ var db = require("../models");
 module.exports = function(app) {
 
     // GET route for getting all of the posts
-    app.get("/review/user/:name", function(req, res) {
-
+    app.get("/api/review/user/:name", function(req, res) {
+        db.User.findOne({
+            where: {
+                user_name: req.params.name
+            }
+        }).then((data) => {
+            db.Review.findAll({
+                where: {
+                    user_id: data.id
+                }
+            }).then((fin) => {
+                res.json(fin);
+            })
+        })
     });
 
     // Get route for retrieving a single post
@@ -71,6 +83,8 @@ module.exports = function(app) {
                 res.json(resp);
             })
         })
+
+        //Update the Overall Score of the Festival
     });
 
     // DELETE route for deleting posts
@@ -81,9 +95,17 @@ module.exports = function(app) {
                     id: req.body.id
                 }
             }).then((data) => {
-                db.Review.getAll({
-                    where
-                })
+                if (Number(req.params.id) === Number(data.id) || data.user_type === "admin") {
+                    db.Review.destroy({
+                        where: {
+                            id: req.params.id
+                        }
+                    }).then((fin) => {
+                        res.json("Review with id = " + fin + " destroyed.");
+                    })
+                } else {
+                    res.json("Cannot delete review.");
+                }
             })
             //Delete if same user or or Admin
 

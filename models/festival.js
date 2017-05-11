@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DECIMAL,
             allowNull: false
         },
+        camping: {
+            type: DataTypes.ENUM('yes', 'no'),
+            defaultValue: 'no'
+        },
         genre: {
             type: DataTypes.STRING,
             allowNull: false

@@ -6,7 +6,8 @@ html
 	head
 		meta(charset="utf-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title FestiVibez
+		block title
+			title FestiVibez
 		-var bootstrap= "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css";
 		-var bootstrapScripts= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js";
 		-var jqueryCDN= "https://code.jquery.com/jquery.js";
@@ -17,6 +18,8 @@ html
 		script(src=jqueryCDN)
 		script(src=bootstrapScripts)
 		block style
+
+
 
 	body
 		+navbar("FestiVibez", "main-nav", "dark", "#")

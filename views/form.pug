@@ -5,6 +5,8 @@ block append style
 	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/form.css", rel="stylesheet" media="screen" title="no title")
 	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
+	block title
+		title What's the Vibe?
 
 block main
 
@@ -37,17 +39,17 @@ block main
 
 		label Rate your experience
 			br
-			.rate
-				input#star5(type='radio', name='overall', value='5')
-				label(for='star5', title='text') 5 stars
-				input#star4(type='radio', name='overall', value='4')
-				label(for='star4', title='text') 4 stars
-				input#star3(type='radio', name='overall', value='3')
-				label(for='star3', title='text') 3 stars
-				input#star2(type='radio', name='overall', value='2')
-				label(for='star2', title='text') 2 stars
-				input#star1(type='radio', name='overall', value='1')
-				label(for='star1', title='text') 1 star
+			ul.rate-area
+				input#5-star(type='radio', name='rating', value='5')
+				label(for='5-star', title='Amazing') 5 stars
+				input#4-star(type='radio', name='rating', value='4')
+				label(for='4-star', title='Good') 4 stars
+				input#3-star(type='radio', name='rating', value='3')
+				label(for='3-star', title='Average') 3 stars
+				input#2-star(type='radio', name='rating', value='2')
+				label(for='2-star', title='Not Good') 2 stars
+				input#1-star(type='radio', name='rating', value='1')
+				label(for='1-star', title='Bad') 1 star
 		br
 
 		label Cost overall?

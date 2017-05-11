@@ -47,7 +47,14 @@ module.exports = function(app) {
     //
     //@res.params.name
     app.get("/festival/:name", function(req, res) {
-        //Query db.festival for props
+       
+        // //Query db.festival for props
+         db.Festival.findOne({
+            where:{ festival: req.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+         }).then((data) => {
+            console.log(data);
+
+         });
         //Create object for template
 
         //Take Festival name from template object, then query Reviews for all of Festival Name
@@ -55,9 +62,15 @@ module.exports = function(app) {
         //Take Response and place in second Object
 
         //Build Complete Template Object out of Festival + Reviews
+        //Look at log for keys, the create an object that goes 
+        //Into your festival mixin variable parameters
+        
+        // var pugData = {//Set params in here from data obj with names corresponding to festival mxin};
+        
+        // res.render("festival", pugData);
 
         //Pass Template Object here
-        res.render("festival", null);
+        // res.render("festival", {});
     });
     // app.get("/test", function(req, res){
     //     db.User.create({

@@ -16,6 +16,7 @@ module.exports = function(app) {
     app.get("/api/festival", function(req, res) {
         db.Festival.findAll({}).then(function(data){
             res.json(data);
+            console.log(data);
         });      
     });
 
@@ -27,17 +28,19 @@ module.exports = function(app) {
             }
         }).then(function(data){
             res.json(data);
+            console.log(data);
         });
     });
     // =====Returns All festivals information base on festival %name% =======
     app.get("/api/festival/all/:name", function(req, res){
         db.Festival.findAll({
-            where: [
+            where: [    
                 "name like ?",
                 '%' + req.params.name + '%'
             ]
         }).then(function(data){
             res.json(data);
+            console.log(data);
         });
     });
     // =====Posts new festival to database ======
@@ -54,6 +57,7 @@ module.exports = function(app) {
         optional: req.body.optional
       }).then(function(data){
         res.json(data);
+        console.log(data);
       });
     });
 

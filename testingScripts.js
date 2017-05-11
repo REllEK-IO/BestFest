@@ -61,12 +61,12 @@ const SetUp = (function() {
 
     var updateCreate = function() {
         importData();
-        var festivalObj = JSON.parse(fs.readFileSync('file', 'utf8'));
+        var festivalObj = JSON.parse(fs.readFileSync('./festival_output.json', 'utf8'));
         var parsedFestival = [];
         var i = 0;
-        if (i <= festivalObject.length) {
-            for(var j = 0; j < festivalObject.length; j++){
-                parsedFestival.push(parsedFestival(festivalObj[j]));
+        if (i <= festivalObj.length) {
+            for(var j = 0; j < festivalObj.length; j++){
+                parsedFestival.push(parseFestival(festivalObj[j]));
             }
             updateCreateCall(parsedFestival, i, updateCreateCall);
         }
@@ -84,7 +84,7 @@ const SetUp = (function() {
             if (err) {
                 console.error(err);
             } else {
-                console.log(result);
+                console.log("Wrote to festival_output.json");
             }
         });
     }
@@ -126,16 +126,21 @@ const SetUp = (function() {
                     break;
             }
         }
-
+        console.log(parsedFestival);
         return parsedFestival;
     }
 
     var updateCreateCall = function(parsedFestival, i, cb) {
-        db.Festival.upsert(parsedFestival[i]).then((data) => {
+        if(i < parsedFestival.length){
+            db.Festival.upsert(parsedFestival[i]).then((data) => {
                 i++;
-                console.log("updateCreated Festival : " + festivalObj.name + " :/ " + data);
+                console.log("updateCreated Festival : " + parsedFestival.name + " :/ " + data);
                 cb(parsedFestival, i, updateCreateCall);
             })
+        }
+        else{
+            console.log("***All festivals in spreadsheet wrote into database***");
+        }
     }
 
 

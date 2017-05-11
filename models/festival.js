@@ -33,7 +33,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         genre: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue: "Variety"
         },
         festival_type: {
             type: DataTypes.STRING,

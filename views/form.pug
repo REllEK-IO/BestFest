@@ -8,6 +8,9 @@ block append style
 	block title
 		title What's the Vibe?
 
+		meta(name='description', content='Website where you can review music festivals. Like a yelp for music festivals')
+		meta(name='keywords', content='music festivals, parties, music, coachella, california, party, EDM, vibes, fun, events, yelp')
+
 block main
 
 	form(id= "main-form")
@@ -33,9 +36,9 @@ block main
 				option Symbiosis
 		br
 
-		div#year-select
+		div
 			label What year(s) did you go?         
-				input
+				input#year-select
 
 		label Rate your experience
 			br
@@ -53,29 +56,29 @@ block main
 		br
 
 		label Cost overall?
-			input(type= "radio" name="cost")
+			input(class="cost" type= "radio" name="cost" value='Cheap')
 			label Cheap
-			input(type= "radio" name="cost")
+			input(class="cost" type= "radio" name="cost" value='Average')
 			label Average
-			input(type= "radio" name="cost")
+			input(class="cost" type= "radio" name="cost" value='Pricey')
 			label Pricey
 		br
 
 		label How was security?           
-				input(type= "radio" name="security")
+				input(class="security" type= "radio" name="security" value='Tight')
 				label Tight
-				input(type= "radio" name="security")
+				input(class="security" type= "radio" name="security" value='Average')
 				label Average
-				input(type= "radio" name="security")
+				input(class="security" type= "radio" name="security" value='Lax')
 				label Lax
 		br
 
 		label How was the sound quality?           
-				input(type= "radio" name="sound")
+				input(class="sound" type= "radio" name="sound" value='Weak')
 				label Weak
-				input(type= "radio" name="sound")
+				input(class="sound" type= "radio" name="sound" value='Average')
 				label Average
-				input(type= "radio" name="sound")
+				input(class="sound" type= "radio" name="sound" value='Bumpin')
 				label Bumpin'
 		br
 
@@ -86,7 +89,7 @@ block main
 		textarea(id= "text-review", name='text_box')
 		br
 
-		button submit
+		button#submit submit
 
 block scripts
 	script(src="./assets/js/form.js")

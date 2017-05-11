@@ -42,11 +42,12 @@ var testing = require("./testingScripts");
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({
     force: true
-}).then(function () {
-    app.listen(PORT, function () {
+}).then(function() {
+    app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
 
         //Create temp users delete for production
         testing.run();
+        testing.importFestivals();
     });
 });

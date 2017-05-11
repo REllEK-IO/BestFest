@@ -1,0 +1,33 @@
+mixin festivalMix(name, location, dates, camping, url,  summary, stars, img)
+	- var name = (typeof name === "undefined") ? "Coachella": name
+	- var location = (typeof location === "undefined") ? "Indio, CA" : location
+	- var dates = (typeof dates === "undefined") ? "April 14-16, April 21-23" : dates
+	- var camping = (typeof camping === "undefined") ? "Yes" : camping
+	- var url = (typeof url === "undefined") ? "https://www.coachella.com/"
+	- var summary = (typeof summary === "undefined") ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac velit vulputate, interdum ligula id, pretium ligula. Proin lobortis, justo vel commodo bibendum, urna nibh imperdiet dolor."
+	- var stars = (typeof stars=== "integer" && stars<= 5) ? stars : 0;
+	- var img = (typeof img = "undefined") ? "../assets/images/coachella.jpg" : img
+	.col-md-6.block1.festival-info
+		h1#festival-name name
+		hr.line
+		ul.festival-information
+			li Location: #[span.festival-location location]
+			li Dates: #[span.festival-dates dates]
+			li Camping: #[span.festival-camping camping]
+			li Website: 
+					span.festival-website 
+							a(id ="festival-website-link" href= url) url
+		h3.festival-summary Summary
+		p#summary summary
+	.col-md-6.block2.avg-festival-rating
+		h3#vibez VIBEZ
+		.star-rating
+			span.stars
+				-for(var i = 0; i < stars; i++){
+					i.glyphicon.glyphicon-star(aria-hidden="true")
+					-}
+				-for(var i = 0; i < (5-stars)){
+					i.glyphicon.glypgicon.-star-empty(aria-hidden= "true")
+					-}
+		img.festival-pictures#festival-pic(src=img)
+	

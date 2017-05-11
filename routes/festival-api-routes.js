@@ -29,6 +29,17 @@ module.exports = function(app) {
             res.json(data);
         });
     });
+    // =====Returns All festivals information base on festival %name% =======
+    app.get("/api/festival/all/:name", function(req, res){
+        db.Festival.findAll({
+            where: [
+                "name like ?",
+                '%' + req.params.name + '%'
+            ]
+        }).then(function(data){
+            res.json(data);
+        });
+    });
     // =====Posts new festival to database ======
     app.post("/api/festivals/add", function(req, res) {
       db.Festival.create({

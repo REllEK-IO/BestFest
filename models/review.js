@@ -24,6 +24,13 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
+        year: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
         //Overall score of festival
         overall: {
             type: DataTypes.INTEGER,

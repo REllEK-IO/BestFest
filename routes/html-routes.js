@@ -36,15 +36,25 @@ module.exports = function (app) {
     });
 
     app.get("/search/:term", function (req, res) {
+        if(req.params.term.trim() === "" || req.params.term === "undefined"){
+            res.redirect("/search");
+        }
+
          db.Festival.findAll({
             where: [    
                 "name like ?",
                 '%' + req.params.term + '%'
             ]
         }).then(function(data){
-            res.render("searchEmbed", {
-                data: data
-            });
+            if(data.length > 1){
+                res.render("searchEmbed", {
+                    data: data
+                });
+            }
+            else{
+                console.log(data);
+                res.redirect("/festival/" + data[0].name);
+            }
         });
     });
 

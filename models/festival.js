@@ -25,7 +25,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         overall: {
             type: DataTypes.DECIMAL,
-            allowNull: true
+            allowNull: true,
+            defaultValue: 0.0
         },
         camping: {
             type: DataTypes.ENUM('yes', 'no'),

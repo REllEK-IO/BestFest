@@ -10,10 +10,42 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
+
+    var updateOverAll = function (name) {
+        console.error("******Called**********");
+        db.Review.findAll({
+            where: {
+                festival: name
+            }
+        }).then((dataRev) => {
+            var reviewArr = [];
+            if (dataRev.length > 1) {
+                for (var i = 0; i < dataRev.length; i++) {
+                    reviewArr.push(dataRev[i].overall);
+                }
+            } else if (dataRev === null) {
+                reviewArr.push(0);
+            } else {
+                reviewArr.push(dataRev[i].overall);
+            }
+            var j;
+            var sum = 0.0;
+            for (j = 0; j < reviewArr.length; j++) {
+                sum += reviewArr[j]
+            }
+
+            db.Festival.update({ overall: (sum / j) }, 
+                        { where: { name: name } }
+            ).then((data) => {
+                console.log(name + " overall score updated: " + data);
+                console.error("******End Call**********");
+            })
+        })
+    }
 
     // GET route for getting all of the posts
-    app.get("/api/review/user/:name", function(req, res) {
+    app.get("/api/review/user/:name", function (req, res) {
         db.User.findOne({
             where: {
                 user_name: req.params.name
@@ -30,7 +62,7 @@ module.exports = function(app) {
     });
 
     // Get route for retrieving a single post
-    app.get("/api/festival/review/:name", function(req, res) {
+    app.get("/api/festival/review/:name", function (req, res) {
         db.Review.findAll({
             where: {
                 festival: req.params.name
@@ -42,7 +74,7 @@ module.exports = function(app) {
 
 
     // POST route for saving a new post
-    app.post("/api/review", function(req, res) {
+    app.post("/api/review", function (req, res) {
         var newReview = {};
         var user = req.body.user;
 
@@ -74,13 +106,14 @@ module.exports = function(app) {
             where: {
                 user_name: user
             }
-        }).then(function(data) {
+        }).then(function (data) {
             newReview["user_id"] = data.id;
             console.log(data.id);
             db.Review.create(newReview, {
                 include: [db.User]
             }).then((resp) => {
                 res.json(resp);
+                updateOverAll(newReview.festival);
             })
         })
 
@@ -88,30 +121,32 @@ module.exports = function(app) {
     });
 
     // DELETE route for deleting posts
-    app.delete("/api/review/delete/:id", function(req, res) {
+    app.delete("/api/review/delete/:id", function (req, res) {
         //Get user name from db
         db.User.getOne({
-                where: {
-                    id: req.body.id
-                }
-            }).then((data) => {
-                if (Number(req.params.id) === Number(data.id) || data.user_type === "admin") {
-                    db.Review.destroy({
-                        where: {
-                            id: req.params.id
-                        }
-                    }).then((fin) => {
-                        res.json("Review with id = " + fin + " destroyed.");
-                    })
-                } else {
-                    res.json("Cannot delete review.");
-                }
-            })
-            //Delete if same user or or Admin
+            where: {
+                id: req.body.id
+            }
+        }).then((data) => {
+            var festivalName = data.festival;
+            if (Number(req.params.id) === Number(data.id) || data.user_type === "admin") {
+                db.Review.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                }).then((fin) => {
+                    res.json("Review with id = " + fin + " destroyed.");
+                    updateOverAll(festivalName);
+                })
+            } else {
+                res.json("Cannot delete review.");
+            }
+        })
+        //Delete if same user or or Admin
     });
 
     // PUT route for updating posts
-    app.put("/api/posts", function(req, res) {
+    app.put("/api/posts", function (req, res) {
 
     })
 }

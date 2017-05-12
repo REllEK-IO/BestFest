@@ -1,10 +1,10 @@
-extends ./templates/main
+extends ./templates/mainEmbed
 include ./mixins/festivalList.pug
 
 block append style
   link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
-  link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
-  link(href="./assets/css/festival.css", rel="stylesheet" media="screen" title="no title")
+  link(href="../assets/css/index.css", rel="stylesheet" media="screen" title="no title")
+  link(href="../assets/css/festival.css", rel="stylesheet" media="screen" title="no title")
   link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css", rel="stylesheet" media="screen" title="no title")
 
 block main
@@ -28,5 +28,5 @@ block main
       +festivalList(val.img_url, val.name, val.overall, val.genre, val.location, val.dates, val.url)
 
 block scripts
-  script(src="./assets/js/autocomplete.js")
+  script(src="../assets/js/autocomplete.js")
   

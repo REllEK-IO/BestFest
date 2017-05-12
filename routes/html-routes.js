@@ -49,13 +49,44 @@ module.exports = function(app) {
     //
     //@res.params.name
     app.get("/festival/by/:name", function(req, res) {
-       
         // //Query db.festival for props
+        var festObj = {};
+        var reviewObj = {};
+
          db.Festival.findOne({
-            where:{ name: res.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+            where:{ name: req.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
          }).then((data) => {
-            console.log(data);
-         });
+            festObj = {
+                name: data.name,
+                location: data.location,
+                dates: data.dates,
+                camping: data.camping,
+                website: data.url,
+                summary: data.summary,
+                image: data.img_url,
+                overall: data.overall,
+                festivalId: data.id
+            }
+
+        db.Review.findAll({
+               where:{festival_id: req.params.festival_id}
+            }).then((data) => {
+            reviewObj = {
+                overall: data.overall,
+                security: data.security,
+                sound: data.sound,
+                text: data.text_box,
+                createdAt: data.createdAt,
+                thumbs: data.thumbs,
+                tags: data.tags,
+
+            }
+            
+        });
+            console.log(festObj);
+            console.log(reviewObj);
+        
+    });
         //Create object for template
 
         //Take Festival name from template object, then query Reviews for all of Festival Name

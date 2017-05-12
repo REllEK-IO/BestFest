@@ -13,7 +13,7 @@ block append style
 
 block main
 
-	form(id= "main-form")
+	div(id= "main-form")
 
 		h2.text-center What's the vibe?
 
@@ -56,35 +56,35 @@ block main
 		br
 
 		label Cost overall?
-			input(class="cost" type= "radio" name="cost" value='Cheap')
+			input(class="cost" type= "radio" name="cost" value='1')
 			label Cheap
-			input(class="cost" type= "radio" name="cost" value='Average')
+			input(class="cost" type= "radio" name="cost" value='2')
 			label Average
-			input(class="cost" type= "radio" name="cost" value='Pricey')
+			input(class="cost" type= "radio" name="cost" value='3')
 			label Pricey
 		br
 
 		label How was security?           
-				input(class="security" type= "radio" name="security" value='Tight')
+				input(class="security" type= "radio" name="security" value='1')
 				label Tight
-				input(class="security" type= "radio" name="security" value='Average')
+				input(class="security" type= "radio" name="security" value='2')
 				label Average
-				input(class="security" type= "radio" name="security" value='Lax')
+				input(class="security" type= "radio" name="security" value='3')
 				label Lax
 		br
 
 		label How was the sound quality?           
-				input(class="sound" type= "radio" name="sound" value='Weak')
+				input(class="sound" type= "radio" name="sound" value='1')
 				label Weak
-				input(class="sound" type= "radio" name="sound" value='Average')
+				input(class="sound" type= "radio" name="sound" value='2')
 				label Average
-				input(class="sound" type= "radio" name="sound" value='Bumpin')
+				input(class="sound" type= "radio" name="sound" value='3')
 				label Bumpin'
 		br
 
 		label Tell us more:
 		br
-		input(type='text', name='title', placeholder="Title (optional")
+		input#title(type='text', name='title', placeholder="Title (optional)")
 		br
 		textarea(id= "text-review", name='text_box')
 		br

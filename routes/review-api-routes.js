@@ -98,6 +98,15 @@ module.exports = function (app) {
                 case "tags":
                     newReview["tags"] = req.body[key];
                     break;
+                case "year":
+                    newReview["year"] = req.body[key];
+                    break;
+                case "cost":
+                    newReview["cost"] = Number(req.body[key]);
+                    break;
+                case "sound":
+                    newReview["sound"] = Number(req.body[key]);
+                    break;
             }
         }
 

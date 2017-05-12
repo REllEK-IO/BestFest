@@ -27,7 +27,7 @@ module.exports = function (app) {
             } else if (dataRev === null) {
                 reviewArr.push(0);
             } else {
-                reviewArr.push(dataRev[i].overall);
+                reviewArr.push(dataRev[0].overall);
             }
             var j;
             var sum = 0.0;
@@ -77,6 +77,7 @@ module.exports = function (app) {
     app.post("/api/review", function (req, res) {
         var newReview = {};
         var user = req.body.user;
+        var festival = req.body.festival;
 
         for (key in req.body) {
             switch (key) {
@@ -117,15 +118,22 @@ module.exports = function (app) {
             }
         }).then(function (data) {
             newReview["user_id"] = data.id;
-            console.log(data.id);
-            db.Review.create(newReview, {
-                include: [db.User]
-            }).then((resp) => {
-                res.json(resp);
-                updateOverAll(newReview.festival);
-            })
-        })
 
+            db.Festival.findOne({
+            where: {
+                name: festival
+            }
+        }).then(function (dataFest) {
+                newReview["festival_id"] = dataFest.id;
+
+                db.Review.create(newReview, {
+                    include: [db.User,db.Festival]
+                }).then((resp) => {
+                    res.json(resp);
+                    updateOverAll(newReview.festival);
+                })
+            });
+        })
         //Update the Overall Score of the Festival
     });
 

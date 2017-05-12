@@ -113,8 +113,8 @@ module.exports = function (app) {
                         sound: dataRev[i].sound,
                         text: dataRev[i].text_box,
                         createdAt: dataRev[i].createdAt,
-                        // thumbs: dataRev[i].thumbs,
-                        // tags: dataRev[i].tags
+                        thumbs: dataRev[i].thumbs,
+                        tags: dataRev[i].tags
                         });
                     }
                 }
@@ -125,17 +125,17 @@ module.exports = function (app) {
                         sound: dataRev.sound,
                         text: dataRev.text_box,
                         createdAt: dataRev.createdAt,
-                        // thumbs: dataRev.thumbs,
-                        // tags: dataRev.tags
+                        thumbs: dataRev.thumbs,
+                        tags: dataRev.tags
                         });
                 }
 
                 //This sets prop reviews to the array we created
                 //Use each reviews inside pug to extract it
                 festObj["reviews"] = reviewArr;
-                 res.render(JSON.stringify(festObj["reviews"]),  {
+                 res.render("festival",  {
                     data: data,
-                    dataRev:dataRev
+                    dataRev:dataRev,
                 });
                 //Add Your render after this
                 console.log(festObj);

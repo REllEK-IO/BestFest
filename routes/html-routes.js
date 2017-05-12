@@ -53,30 +53,31 @@ module.exports = function (app) {
         res.render("user", null);
     });
     // festivals route loads author-manager.html
-    app.get("/festival", function (req, res) {
-        //Get all review scores for festival
-        // db.Review.findAll({
-        //     where:{
-        //        festival: req.pararams.festival
-        //     } 
-        // }).then((data)=>{
-        // }
-        // var total = 0;
-        // for(var i = 0; i < data.length; i ++){
-        //     total+=data[i];
-        // }
-        // var avg = total/data.length;
-        // console.log(data);
-        //{}
-        res.render("festival", null);
-    });
+    // app.get("/festival", function (req, res) {
+    //     //Get all review scores for festival
+    //     // db.Review.findAll({
+    //     //     where:{
+    //     //        festival: req.pararams.festival
+    //     //     } 
+    //     // }).then((data)=>{
+    //     // }
+    //     // var total = 0;
+    //     // for(var i = 0; i < data.length; i ++){
+    //     //     total+=data[i];
+    //     // }
+    //     // var avg = total/data.length;
+    //     // console.log(data);
+    //     //{}
+    //     res.render("festival", null);
+    // });
     //////This returns an html page of the festival of name if it exists. Otherwise 404
     //
     //@res.params.name
     app.get("/festival/:name", function (req, res) {
         // //Query db.festival for props
         var festivalName = req.params.name;
-        var festObj = {};
+        console.log("///////////////////////////////////"+festivalName+req.params.name);
+        var festObj;
         var reviewArr = [];
         db.Festival.findOne({
             where: {
@@ -90,7 +91,7 @@ module.exports = function (app) {
                 camping: data.camping,
                 website: data.url,
                 summary: data.summary,
-                img: data.img_url,
+                image: data.img_url,
                 stars: data.overall,
                 festivalId: data.id
             };
@@ -101,7 +102,7 @@ module.exports = function (app) {
             }).then((dataRev) => {
                 //Pushes reviews into an array
                 console.log(dataRev.length);
-                if(dataRev.length > 1){
+                if(dataRev.length >= 0){
                     for (var i = 0; i < dataRev.length; i++) {
                     reviewArr.push({
                         overall: dataRev[i].overall,
@@ -134,20 +135,10 @@ module.exports = function (app) {
                     // dataRev:dataRev,
                 });
                 //Add Your render after this
-                console.log(festObj);
+                console.log("******************//////",festObj);
             });
         });
-        //Create object for template
-        //Take Festival name from template object, then query Reviews for all of Festival Name
-        // where : { festival: name }
-        //Take Response and place in second Object
-        //Build Complete Template Object out of Festival + Reviews
-        //Look at log for keys, the create an object that goes 
-        //Into your festival mixin variable parameters
-        // var pugData = {//Set params in here from data obj with names corresponding to festival mxin};
-        // res.render("festival", pugData);
-        //Pass Template Object here
-        // res.render("festival", {});
+
     });
     // app.get("/test", function(req, res){
     //     db.User.create({

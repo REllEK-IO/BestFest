@@ -67,7 +67,21 @@ module.exports = function (app) {
     // festivals route loads author-manager.html
     app.get("/festival", function (req, res) {
         //Get all review scores for festival
-        //average
+        // db.Review.findAll({
+        //     where:{
+        //        festival: req.pararams.festival
+        //     } 
+        // }).then((data)=>{
+
+        // }
+        // var total = 0;
+
+        // for(var i = 0; i < data.length; i ++){
+
+        //     total+=data[i];
+        // }
+        // var avg = total/data.length;
+        // console.log(data);
         //{}
         res.render("festival", null);
     });
@@ -135,7 +149,7 @@ module.exports = function (app) {
                 festObj["reviews"] = reviewArr;
                  res.render("festival",  {
                     data: data,
-                    dataRev:dataRev,
+                    // dataRev:dataRev,
                 });
                 //Add Your render after this
                 console.log(festObj);

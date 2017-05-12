@@ -36,6 +36,10 @@ module.exports = function (app) {
     });
 
     app.get("/search/:term", function (req, res) {
+        if(req.params.term.trim() === "" || req.params.term === undefined){
+            res.redirect("/search");
+        }
+
          db.Festival.findAll({
             where: [    
                 "name like ?",

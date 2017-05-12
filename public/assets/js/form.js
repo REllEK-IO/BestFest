@@ -18,6 +18,6 @@ $(document).ready(function(){
     });
 });
 
-// $("#submit").click(function(){
-//   location.reload();
-// });
+$("#submit").click(function(){
+  window.location.href = "/festival/by/" + $("#select-name").val();
+});

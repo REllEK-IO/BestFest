@@ -24,12 +24,12 @@ mixin festivalMix(name, location, dates, camping, url,  summary, stars, img)
 		h3#vibez VIBEZ
 		.star-rating
 			span.stars
-				-for(var i = 0; i < stars; i++){
-					i.glyphicon.glyphicon-star(aria-hidden="true")
-				-}
-			span.stars
-				-for(var j = 0; j < negativeStars; i++){
-					i.glyphicon.glyphicon-star-empty(aria-hidden="true")
-				-}
+			//- 	-for(var i = 0; i < stars; i++){
+			//- 		i.glyphicon.glyphicon-star(aria-hidden="true")
+			//- 	-}
+			//- span.stars
+			//- 	-for(var j = 0; j < negativeStars; i++){
+			//- 		i.glyphicon.glyphicon-star-empty(aria-hidden="true")
+			//- 	-}
 		img.festival-pictures#festival-pic(src=img)
 	

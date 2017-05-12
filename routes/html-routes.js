@@ -1,13 +1,10 @@
-
 // *********************************************************************************
 // html-routes.js - this file offers a set of routes for sending users to the various html pages
 // *********************************************************************************
-
 // Dependencies
 // =============================================================
 var path = require("path");
 var db = require("../models");
-
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -15,16 +12,13 @@ module.exports = function (app) {
     app.get("/", function (req, res) {
         res.render("construction", null);
     });
-
     app.get("/index", function (req, res) {
         res.render("index", null);
     });
-
     // from route loads cms.html
     app.get("/form", function (req, res) {
         res.render("form", null);
     });
-
     // search route loads blog.html
     app.get("/search", function (req, res) {
         db.Festival.findAll({}).then(function (data) {
@@ -33,12 +27,10 @@ module.exports = function (app) {
             });
         });
     });
-
     app.get("/search/:term", function (req, res) {
         if(req.params.term.trim() === "" || req.params.term === "undefined"){
             res.redirect("/search");
         }
-
          db.Festival.findAll({
             where: [    
                 "name like ?",
@@ -56,12 +48,10 @@ module.exports = function (app) {
             }
         });
     });
-
     // search route loads blog.html
     app.get("/user", function (req, res) {
         res.render("user", null);
     });
-
     // festivals route loads author-manager.html
     app.get("/festival", function (req, res) {
         //Get all review scores for festival
@@ -70,12 +60,9 @@ module.exports = function (app) {
         //        festival: req.pararams.festival
         //     } 
         // }).then((data)=>{
-
         // }
         // var total = 0;
-
         // for(var i = 0; i < data.length; i ++){
-
         //     total+=data[i];
         // }
         // var avg = total/data.length;
@@ -86,12 +73,11 @@ module.exports = function (app) {
     //////This returns an html page of the festival of name if it exists. Otherwise 404
     //
     //@res.params.name
-    app.get("/festival/by/:name", function (req, res) {
+    app.get("/festival/:name", function (req, res) {
         // //Query db.festival for props
         var festivalName = req.params.name;
         var festObj = {};
         var reviewArr = [];
-
         db.Festival.findOne({
             where: {
                 name: festivalName
@@ -108,8 +94,6 @@ module.exports = function (app) {
                 stars: data.overall,
                 festivalId: data.id
             };
-
-
             db.Review.findAll({
                 where: {
                     festival: festivalName
@@ -142,11 +126,10 @@ module.exports = function (app) {
                         tags: dataRev.tags
                         });
                 }
-
                 //This sets prop reviews to the array we created
                 //Use each reviews inside pug to extract it
                 festObj["reviews"] = reviewArr;
-                 res.render("festival",  {
+                 res.render("festivalEmbed",  {
                     data: data,
                     // dataRev:dataRev,
                 });
@@ -155,19 +138,14 @@ module.exports = function (app) {
             });
         });
         //Create object for template
-
         //Take Festival name from template object, then query Reviews for all of Festival Name
         // where : { festival: name }
         //Take Response and place in second Object
-
         //Build Complete Template Object out of Festival + Reviews
         //Look at log for keys, the create an object that goes 
         //Into your festival mixin variable parameters
-
         // var pugData = {//Set params in here from data obj with names corresponding to festival mxin};
-
         // res.render("festival", pugData);
-
         //Pass Template Object here
         // res.render("festival", {});
     });
@@ -177,13 +155,11 @@ module.exports = function (app) {
     //     }).then((data) => {
     //         console.log(data.dataValues.user_name);
     //     })
-
     //     db.User.create({
     //         user_name: "Boob"
     //     }).then((data) => {
     //         console.log(data.dataValues.user_name);
     //     })
-
     //     db.Review.create({
     //         festival: "Something",
     //         overall: 5,
@@ -191,14 +167,12 @@ module.exports = function (app) {
     //     },{
     //         include: [db.User]
     //     })
-
     //     db.User.findAll({where: {
     //         user_name: "Bob"
     //     }}).then(function(data){
     //         res.json(data);
     //     });
     // })
-
     // Test pug's object insertions
     app.get("/test", function (req, res) {
         var objPug = {

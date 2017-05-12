@@ -43,7 +43,7 @@ button{
     box-shadow: 5px 5px 30px black;
     margin-top: -5px;
     letter-spacing: 0px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Pontano Sans', sans-serif;
     padding-left:0em;
 
 /*    text-align: center;*/
@@ -206,7 +206,7 @@ input[name="title"]{
   margin-left: 8em;
 }
 #year-select{
-  margin-left: 4em;
+  margin-left: 3.9em;
 }
 .rate-area{
   margin-left: 3em;
@@ -221,9 +221,9 @@ input[name="title"]{
 }
 
 .form-selectors-security{
-  margin-left: 6em;
+  margin-left: 5.8em;
 }
 
 .form-selectors-sound{
-  margin-left: 2.4em;
+  margin-left: 2em;
 }

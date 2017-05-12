@@ -22,9 +22,9 @@ const SetUp = (function() {
                     }).then(() => {
                         db.Review.create({
                             "title": null,
-                            "festival": "something",
-                            "overall": 5,
-                            "security": 5,
+                            "festival": "Coachella",
+                            "overall": 4,
+                            "security": 3,
                             "text_box": null,
                             "tags": null,
                             "thumbs": 0,
@@ -37,7 +37,7 @@ const SetUp = (function() {
                         }).then((resp) => {
                             db.Review.create({
                                 "title": null,
-                                "festival": "something",
+                                "festival": "Coachella",
                                 "overall": 5,
                                 "security": 5,
                                 "text_box": null,

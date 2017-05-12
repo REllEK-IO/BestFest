@@ -19,5 +19,5 @@ $(document).ready(function(){
 });
 
 $("#submit").click(function(){
-  window.location.href = "/festival/by/" + $("#select-name").val();
+  window.location.href = "/festival/" + $("#select-name").val();
 });

@@ -4,7 +4,7 @@ block append style
 	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/form.css", rel="stylesheet" media="screen" title="no title")
-	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
+	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Anton|Source+Code+Pro" rel="stylesheet")
 	block title
 		title What's the Vibe?
 
@@ -17,31 +17,30 @@ block main
 
 		h2.text-center What's the vibe?
 
-		label Festival Name:            
-			select#select-name(name='festival')
-				option 
-				option Beyond Wonderland
-				option Coachella
-				option CRSSD
-				option Desert Hearts
-				option Dirtybird Campout
-				option FYF
-				option Hard Summer
-				option Kaaboo
-				option Lightning in a Bottle
-				option Outsidelands
-				option Reggae on the River
-				option Snowglobe
-				option Stagecoach
-				option Symbiosis
-		br
+		div#user-inputs
+			label #[span.fest-name Festival Name:]            
+				select#select-name(name='festival')
+					option 
+					option Beyond Wonderland
+					option Coachella
+					option CRSSD
+					option Desert Hearts
+					option Dirtybird Campout
+					option FYF
+					option Hard Summer
+					option Kaaboo
+					option Lightning in a Bottle
+					option Outsidelands
+					option Reggae on the River
+					option Snowglobe
+					option Stagecoach
+					option Symbiosis
 
-		div
-			label What year(s) did you go?         
-				input#year-select
+			div
+				label #[span.fest-year What year(s) did you go?]         
+					input#year-select
 
-		label Rate your experience
-			br
+			label Rate your experience
 			ul.rate-area
 				input#5-star(class="rating" type='radio', name='rating', value='5')
 				label(for='5-star', title='Amazing') 5 stars
@@ -53,43 +52,43 @@ block main
 				label(for='2-star', title='Not Good') 2 stars
 				input#1-star(class="rating" type='radio', name='rating', value='1')
 				label(for='1-star', title='Bad') 1 star
-		br
+			br
 
-		label Cost overall?
-			input(class="cost" type= "radio" name="cost" value='1')
-			label Cheap
-			input(class="cost" type= "radio" name="cost" value='2')
-			label Average
-			input(class="cost" type= "radio" name="cost" value='3')
-			label Pricey
-		br
-
-		label How was security?           
-				input(class="security" type= "radio" name="security" value='1')
-				label Tight
-				input(class="security" type= "radio" name="security" value='2')
+			label Cost overall?
+				input(class="cost" type= "radio" name="cost" value='1')
+				label Cheap
+				input(class="cost" type= "radio" name="cost" value='2')
 				label Average
-				input(class="security" type= "radio" name="security" value='3')
-				label Lax
-		br
+				input(class="cost" type= "radio" name="cost" value='3')
+				label Pricey
+			br
 
-		label How was the sound quality?           
-				input(class="sound" type= "radio" name="sound" value='1')
-				label Weak
-				input(class="sound" type= "radio" name="sound" value='2')
-				label Average
-				input(class="sound" type= "radio" name="sound" value='3')
-				label Bumpin'
-		br
+			label How was security?           
+					input(class="security" type= "radio" name="security" value='1')
+					label Tight
+					input(class="security" type= "radio" name="security" value='2')
+					label Average
+					input(class="security" type= "radio" name="security" value='3')
+					label Lax
+			br
 
-		label Tell us more:
-		br
-		input#title(type='text', name='title', placeholder="Title (optional)")
-		br
-		textarea(id= "text-review", name='text_box')
-		br
+			label How was the sound quality?           
+					input(class="sound" type= "radio" name="sound" value='1')
+					label Weak
+					input(class="sound" type= "radio" name="sound" value='2')
+					label Average
+					input(class="sound" type= "radio" name="sound" value='3')
+					label Bumpin'
+			br
 
-		button#submit submit
+			label Tell us more:
+			br
+			input#title(type='text', name='title', placeholder="Title (optional)")
+			br
+			textarea(id= "text-review", name='text_box')
+			br
+
+			button#submit submit
 
 block scripts
 	script(src="./assets/js/form.js")

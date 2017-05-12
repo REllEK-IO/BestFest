@@ -75,7 +75,7 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
                 // Associating Author with Posts
                 // When an Author is deleted, also delete any associated Posts
-                Festival.hasMany(models.Review, {
+                models.Festival.hasMany(models.Review, {
                     onDelete: "cascade",
                     foreignKey: "festival_id"
                 });

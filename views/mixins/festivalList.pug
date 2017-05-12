@@ -1,17 +1,18 @@
 mixin festivalList(image, festival, overall, genre, location, dates, website)
+	-var festivalPage = "./festival/by/" + festival
 	.row
 	.col-lg-1
-	.col-lg-1.result-block
-		img(src=image, alternate=image)
-	.col-lg-2.result-block
-		h3 !{festival}
-	.col-lg-1.result-block
+	.col-lg-1.result-block-md
+		img.circle(src=image, alternate=image)
+	.col-lg-2.result-block-md
+		a(href=festivalPage) !{festival}
+	.col-lg-1.result-block-md
 		h3 !{overall}
-	.col-lg-1.result-block
+	.col-lg-1.result-block-md
 		h3 !{genre}
-	.col-lg-2.result-block
+	.col-lg-2.result-block-md
 		h3 !{location}
-	.col-lg-2.result-block
+	.col-lg-2.result-block-md
 		h3 !{dates}
-	.col-lg-1.result-block
-		h3 !{website}
+	.col-lg-1.result-block-md
+		a.btn.btn-default.btn-sm(href=website) Link

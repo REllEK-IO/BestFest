@@ -135,8 +135,23 @@ h4 {
 .result-block{
     text-align: center;
     vertical-align: middle;
-    height: 75px;
-    line-height: 75px !important;
+    height: 100px;
+    line-height: 100px !important;
+    background-color: grey;
+    border-right: 1px solid black;
+}
+
+.result-block-md{
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    line-height: 100px !important;
     background-color: silver;
     border-right: 1px solid black;
+}
+
+.circle{
+    border-radius: 30px;
+    height: 100px;
+    width: auto;
 }

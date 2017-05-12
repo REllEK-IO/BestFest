@@ -9,17 +9,19 @@ block append style
   //- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
+  -var reviews = (data.reviews !== undefined) ? data.reviews : []
   .row.festival-wrapper
     .col-lg-1
     .col-lg-10
-      +festivalMix(name, location, dates, camping, website,  summary, stars, img)
+      +festivalMix(data.name, data.location, data.dates, data.camping, data.website,  data.summary, data.stars, data.img)
        
   .row.festival-wrapper#user-reviews-container
     h2#reviews-header.text-center REVIEWS
     .row
      .col-lg-1.noborder
      .col-lg-10.review-container
-      +userReview(avatar, createdAt, sound, crowd, security, cost, overall, text, thumbs)
+     each val in reviews
+      +userReview(val.avatar, val.createdAt, val.sound, val.crowd, val.security, val.cost, val.overall, val.text, val.thumbs)
 
 block scripts
  scripts(src="../assets/js/reviews.js")

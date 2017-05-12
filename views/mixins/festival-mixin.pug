@@ -7,6 +7,7 @@ mixin festivalMix(name, location, dates, camping, url,  summary, stars, img)
 	- var summary = (typeof summary === "undefined") ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac velit vulputate, interdum ligula id, pretium ligula. Proin lobortis, justo vel commodo bibendum, urna nibh imperdiet dolor." : summary
 	- var stars = (typeof stars === "integer" && stars <= 5) ? stars : 0;
 	- var img = (typeof img === "undefined") ? "../assets/images/coachella.jpg" : img
+	- var negativeStars = 5 - stars
 	.col-md-6.block1.festival-info
 		h1#festival-name name
 		hr.line
@@ -25,9 +26,10 @@ mixin festivalMix(name, location, dates, camping, url,  summary, stars, img)
 			span.stars
 				-for(var i = 0; i < stars; i++){
 					i.glyphicon.glyphicon-star(aria-hidden="true")
-					-}
-				-for(var i = 0; i < (5-stars)){
-					i.glyphicon.glyphicon.-star-empty(aria-hidden= "true")
-					-}
+				-}
+			span.stars
+				-for(var j = 0; j < negativeStars; i++){
+					i.glyphicon.glyphicon-star-empty(aria-hidden="true")
+				-}
 		img.festival-pictures#festival-pic(src=img)
 	

@@ -52,6 +52,7 @@ module.exports = function(app) {
         // //Query db.festival for props
         var festObj = {};
         var reviewObj = {};
+        var empty = {};
 
          db.Festival.findOne({
             where:{ name: req.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
@@ -67,6 +68,7 @@ module.exports = function(app) {
                 overall: data.overall,
                 festivalId: data.id
             };
+            //added some commments
 
         db.Review.findAll({
                where:{festival: req.params.festival}

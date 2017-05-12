@@ -13,8 +13,11 @@ $(document).ready(function(){
             text_body : $("#text-review").val().trim()
         },
         function(data, status){
-            console.log("Data: " + data.title + "\nStatus: " + status);
+            console.log("Data: " + data + "\nStatus: " + status);
         });
     });
 });
 
+// $("#submit").click(function(){
+//   location.reload();
+// });

@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         year: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -111,10 +111,10 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                Review.belongsTo(models.User, {
+                models.Review.belongsTo(models.User, {
                     foreignKey: "user_id"
                 });
-                Review.belongsTo(models.Festival, {
+                models.Review.belongsTo(models.Festival, {
                     foreignKey: "festival_id",
                 });
             }

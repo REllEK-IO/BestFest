@@ -3,7 +3,7 @@ mixin festivalList(image, festival, overall, genre, location, dates, website)
 	.row
 	.col-lg-1
 	.col-lg-1.result-block-md
-		img.circle(src=image, alternate=image)
+		
 	.col-lg-2.result-block-md
 		a(href=festivalPage) !{festival}
 	.col-lg-1.result-block-md
@@ -16,3 +16,17 @@ mixin festivalList(image, festival, overall, genre, location, dates, website)
 		h3 !{dates}
 	.col-lg-1.result-block-md
 		a.btn.btn-default.btn-sm(href=website) Link
+
+mixin festivalTable(image, festival, overall, genre, location, dates, website)
+	-var festivalPage = "./festival/by/" + festival
+	tr
+		td 
+			img.circle(src=image, alternate=image)
+		td !{festival}
+		td !{overall}
+		td !{genre}
+		td !{location}
+		td !{dates}
+		td
+			a.btn.btn-default.btn-sm(href=website) Link
+		

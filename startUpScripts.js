@@ -31,7 +31,8 @@ const SetUp = (function() {
                             "id": 1,
                             "createdAt": "2017-05-10T22:00:52.000Z",
                             "updatedAt": "2017-05-10T22:00:52.000Z",
-                            "user_id": 1
+                            "user_id": 1,
+                            "festival_id" : 1
                         }, {
                             include: [db.User]
                         }).then((resp) => {
@@ -46,7 +47,8 @@ const SetUp = (function() {
                                 "id": 2,
                                 "createdAt": "2017-05-10T22:01:07.000Z",
                                 "updatedAt": "2017-05-10T22:01:07.000Z",
-                                "user_id": 4
+                                "user_id": 4,
+                                "festival_id" : 1
                             }, {
                                 include: [db.User]
                             }).then((resp) => {

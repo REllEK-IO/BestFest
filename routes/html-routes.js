@@ -77,12 +77,7 @@ module.exports = function (app) {
         // //Query db.festival for props
         var festivalName = req.params.name;
         var festObj = {};
-<<<<<<< HEAD
-        var reviewObj = {};
-        var empty = {};
-=======
         var reviewArr = [];
->>>>>>> 69cc710507a1849afd0be020b9b253883e1edb4a
 
         db.Festival.findOne({
             where: {
@@ -100,29 +95,8 @@ module.exports = function (app) {
                 overall: data.overall,
                 festivalId: data.id
             };
-            //added some commments
 
-<<<<<<< HEAD
-        db.Review.findAll({
-               where:{festival: req.params.festival}
-            }).then((data) => {
-            reviewObj = {
-                festival: data.festival,
-                overall: data.overall,
-                security: data.security,
-                sound: data.sound,
-                text: data.text_box,
-                createdAt: data.createdAt,
-                thumbs: data.thumbs,
-                tags: data.tags,
-            }
-            
-        });
-            console.log(festObj);
-            console.log(reviewObj + "this should be full");
-        
-    });
-=======
+
             db.Review.findAll({
                 where: {
                     festival: festivalName
@@ -163,7 +137,6 @@ module.exports = function (app) {
                 console.log(festObj);
             });
         });
->>>>>>> 69cc710507a1849afd0be020b9b253883e1edb4a
         //Create object for template
 
         //Take Festival name from template object, then query Reviews for all of Festival Name

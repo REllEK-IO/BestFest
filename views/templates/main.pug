@@ -17,19 +17,16 @@ html
 		link(href=bootstrap, rel="stylesheet")
 		link(href=pageStyle, rel="stylesheet" media="screen" title="no title")
 		link(href="https://fonts.googleapis.com/css?family=Anton|Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
+		link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css", rel="stylesheet" media="screen" title="no title")
 		script(src=jqueryCDN)
 		script(src=bootstrapScripts)
 		block style
-
-
 
 	body
 		+navbar("FestiVibez", "main-nav", "dark", "#")
 			+nav_item("#", "dark", "active", "Test")
 			+searchBar()
-		br
-		+tempUser()
-		br
+
 		block main
 			.container
 		footer

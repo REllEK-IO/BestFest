@@ -11,8 +11,6 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
-
-
     // index route loads view.html
     app.get("/", function (req, res) {
         res.render("construction", null);
@@ -106,8 +104,8 @@ module.exports = function (app) {
                 camping: data.camping,
                 website: data.url,
                 summary: data.summary,
-                image: data.img_url,
-                overall: data.overall,
+                img: data.img_url,
+                stars: data.overall,
                 festivalId: data.id
             };
 
@@ -137,6 +135,7 @@ module.exports = function (app) {
                         overall: dataRev.overall,
                         security: dataRev.security,
                         sound: dataRev.sound,
+                        cost: dataRev.cost,
                         text: dataRev.text_box,
                         createdAt: dataRev.createdAt,
                         thumbs: dataRev.thumbs,

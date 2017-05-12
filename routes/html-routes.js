@@ -69,7 +69,7 @@ module.exports = function(app) {
             }
 
         db.Review.findAll({
-               where:{name: req.params.name}
+               where:{festival: req.params.name}
             }).then((data) => {
             reviewObj = {
                 overall: data.overall,

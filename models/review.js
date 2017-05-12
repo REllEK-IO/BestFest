@@ -79,7 +79,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         //Text body
-        text_box: {
+        text_body: {
             type: DataTypes.TEXT,
             allowNull: true,
             validate: {

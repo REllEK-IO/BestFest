@@ -32,6 +32,21 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
+        sound: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
+        cost: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
+        
         //Security Score
         security: {
             type: DataTypes.INTEGER,

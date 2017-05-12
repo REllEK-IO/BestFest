@@ -9,37 +9,39 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
 
     // index route loads view.html
-    app.get("/", function(req, res) {
+    app.get("/", function (req, res) {
         res.render("construction", null);
     });
 
-    app.get("/index", function(req, res) {
+    app.get("/index", function (req, res) {
         res.render("index", null);
     });
 
     // from route loads cms.html
-    app.get("/form", function(req, res) {
+    app.get("/form", function (req, res) {
         res.render("form", null);
     });
 
     // search route loads blog.html
-    app.get("/search", function(req, res) {
-        db.Festival.findAll({}).then(function(data){
-            res.render("search", { data : data});
+    app.get("/search", function (req, res) {
+        db.Festival.findAll({}).then(function (data) {
+            res.render("search", {
+                data: data
+            });
         });
     });
 
     // search route loads blog.html
-    app.get("/user", function(req, res) {
+    app.get("/user", function (req, res) {
         res.render("user", null);
     });
 
     // festivals route loads author-manager.html
-    app.get("/festival", function(req, res) {
+    app.get("/festival", function (req, res) {
         //Get all review scores for festival
         //average
         //{}
@@ -48,14 +50,17 @@ module.exports = function(app) {
     //////This returns an html page of the festival of name if it exists. Otherwise 404
     //
     //@res.params.name
-    app.get("/festival/by/:name", function(req, res) {
+    app.get("/festival/by/:name", function (req, res) {
         // //Query db.festival for props
+        var festivalName = req.params.name;
         var festObj = {};
-        var reviewObj = {};
+        var reviewArr = [];
 
-         db.Festival.findOne({
-            where:{ name: req.params.name }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-         }).then((data) => {
+        db.Festival.findOne({
+            where: {
+                name: festivalName
+            }
+        }).then((data) => {
             festObj = {
                 name: data.name,
                 location: data.location,
@@ -68,25 +73,46 @@ module.exports = function(app) {
                 festivalId: data.id
             }
 
-        db.Review.findAll({
-               where:{festival: req.params.name}
-            }).then((data) => {
-            reviewObj = {
-                overall: data.overall,
-                security: data.security,
-                sound: data.sound,
-                text: data.text_box,
-                createdAt: data.createdAt,
-                thumbs: data.thumbs,
-                tags: data.tags,
+            db.Review.findAll({
+                where: {
+                    festival: festivalName
+                }
+            }).then((dataRev) => {
+                //Pushes reviews into an array
+                console.log(dataRev.length);
+                if(dataRev.length > 1){
+                    for (var i = 0; i < dataRev.length; i++) {
+                    reviewArr.push({
+                        overall: dataRev[i].overall,
+                        security: dataRev[i].security,
+                        sound: dataRev[i].sound,
+                        text: dataRev[i].text_box,
+                        createdAt: dataRev[i].createdAt,
+                        thumbs: dataRev[i].thumbs,
+                        tags: dataRev[i].tags
+                        });
+                    }
+                }
+                else{
+                    reviewArr.push({
+                        overall: dataRev.overall,
+                        security: dataRev.security,
+                        sound: dataRev.sound,
+                        text: dataRev.text_box,
+                        createdAt: dataRev.createdAt,
+                        thumbs: dataRev.thumbs,
+                        tags: dataRev.tags
+                        });
+                }
 
-            }
-            
+                //This sets prop reviews to the array we created
+                //Use each reviews inside pug to extract it
+                festObj["reviews"] = reviewArr;
+
+                //Add Your render after this
+                console.log(festObj);
+            });
         });
-            console.log(festObj);
-            console.log(reviewObj);
-        
-    });
         //Create object for template
 
         //Take Festival name from template object, then query Reviews for all of Festival Name
@@ -96,9 +122,9 @@ module.exports = function(app) {
         //Build Complete Template Object out of Festival + Reviews
         //Look at log for keys, the create an object that goes 
         //Into your festival mixin variable parameters
-        
+
         // var pugData = {//Set params in here from data obj with names corresponding to festival mxin};
-        
+
         // res.render("festival", pugData);
 
         //Pass Template Object here
@@ -133,7 +159,7 @@ module.exports = function(app) {
     // })
 
     // Test pug's object insertions
-    app.get("/test", function(req, res) {
+    app.get("/test", function (req, res) {
         var objPug = {
             something: "This goes into head 1",
             example: "This goes into head 2"

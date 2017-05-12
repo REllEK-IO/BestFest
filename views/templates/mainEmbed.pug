@@ -1,0 +1,40 @@
+include ../mixins/navbar.pug
+include ../mixins/temp.pug
+include ../mixins/autocomplete-searchbar.pug
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		block title
+			title FestiVibez
+		-var bootstrap= "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css";
+		-var bootstrapScripts= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js";
+		-var jqueryCDN= "https://code.jquery.com/jquery.js";
+		-var jqueryuiCDN= "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+		-var pageStyle= "../assets/css/styles.css";
+		link(href=bootstrap, rel="stylesheet")
+		link(href=pageStyle, rel="stylesheet" media="screen" title="no title")
+		link(href="https://fonts.googleapis.com/css?family=Anton|Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
+		script(src=jqueryCDN)
+		script(src=bootstrapScripts)
+		block style
+
+
+
+	body
+		+navbar("FestiVibez", "main-nav", "dark", "#")
+			+nav_item("#", "dark", "active", "Test")
+			+searchBar()
+		br
+		+tempUser()
+		br
+		block main
+			.container
+		footer
+			.container-fluid.footer
+				h4.text-center FestiVibez.com Team: Bilbo Backends
+script(src=jqueryuiCDN)
+
+block scripts

@@ -35,6 +35,19 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/search/:term", function (req, res) {
+         db.Festival.findAll({
+            where: [    
+                "name like ?",
+                '%' + req.params.term + '%'
+            ]
+        }).then(function(data){
+            res.render("searchEmbed", {
+                data: data
+            });
+        });
+    });
+
     // search route loads blog.html
     app.get("/user", function (req, res) {
         res.render("user", null);

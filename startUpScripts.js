@@ -2,87 +2,156 @@ var db = require("./models");
 var xlsxj = require("xlsx-to-json");
 var fs = require('fs');
 
-const SetUp = (function() {
-    var runScript = function() {
-        db.User.create({
-            user_name: "Tempo",
-            user_type: "user"
-        }).then(() => {
-            db.User.create({
-                user_name: "Beatz",
-                user_type: "user"
-            }).then(() => {
+
+// const updateCreateUser = function (user, type) {
+
+// }
+
+// const updateCreateReview = function (reviewObj) {
+//     db.Review.findOne({
+//         where: {
+//             user_id: reviewObj.user_id,
+//             festival_id: reviewObj.festival_id
+//         }
+//     }, {
+//         include: [db.User, db.Festival]
+//     }).then((data) => {
+//         if (data !== null) {
+//             db.Review.create(reviewObj, {
+//                 include: [db.User, db.Festival]
+//             }).then((dataReview) => {
+//                 return dataReview;
+//             });
+//         } else {
+//             return "Review already exists!";
+//         }
+//     })
+// }
+
+const SetUp = (function () {
+    var runScript = function () {
+        db.User.findOne({
+            where: {
+                user_name: "User"
+            }
+        }).then((data) => {
+            if (data === null) {
                 db.User.create({
-                    user_name: "Mixn",
-                    user_type: "admin"
-                }).then(() => {
-                    db.User.create({
-                        user_name: "Raza",
-                        user_type: "user"
-                    }).then(() => {
-                        db.Review.create({
-                            "title": null,
-                            "festival": "Coachella",
-                            "overall": 4,
-                            "security": 3,
-                            "text_box": null,
-                            "tags": null,
-                            "thumbs": 0,
-                            "id": 1,
-                            "createdAt": "2017-05-10T22:00:52.000Z",
-                            "updatedAt": "2017-05-10T22:00:52.000Z",
-                            "user_id": 1,
-                            "festival_id" : 1
-                        }, {
-                            include: [db.User]
-                        }).then((resp) => {
-                            db.Review.create({
-                                "title": null,
-                                "festival": "Coachella",
-                                "overall": 5,
-                                "security": 5,
-                                "text_box": null,
-                                "tags": null,
-                                "thumbs": 0,
-                                "id": 2,
-                                "createdAt": "2017-05-10T22:01:07.000Z",
-                                "updatedAt": "2017-05-10T22:01:07.000Z",
-                                "user_id": 4,
-                                "festival_id" : 1
-                            }, {
-                                include: [db.User]
-                            }).then((resp) => {
-                                console.log("***Testing Set Up Script Complete***");
+                    user_name: "User",
+                    user_type: "user"
+                }).then((dataUser) => {
+                    console.log(dataUser.user_name);
+                    db.User.findOne({
+                        where: {
+                            user_name: "Admin"
+                        }
+                    }).then((data) => {
+                        if (data === null) {
+                            db.User.create({
+                                user_name: "Admin",
+                                user_type: "admin"
+                            }).then((dataUser) => {
+                                console.log(dataUser.user_name);
                             })
-                        })
+                        } else {
+                            return "Admin" + " already exists!";
+                        }
                     })
                 })
-            })
+            } else {
+                console.log("User" + " already exists!");
+                db.User.findOne({
+                    where: {
+                        user_name: "Admin"
+                    }
+                }).then((data) => {
+                    if (data === null) {
+                        db.User.create({
+                            user_name: "Admin",
+                            user_type: "admin"
+                        }).then((dataUser) => {
+                            console.log(dataUser);
+                        })
+                    } else {
+                        console.log("Admin" + " already exists!");
+                    }
+                })
+            }
         })
+
+        // db.User.upsert({
+        //     user_name: "Tempo",
+        //     user_type: "user"
+        // },{
+        //     where : {
+        //         user_name : "Tempo"
+        //     }
+        // }).then(() => {
+        //     db.User.upsert({
+        //         user_name: "Beatz",
+        //         user_type: "user"
+        //     },{
+        //         where : {
+        //             user_name: "Beatz"
+        //         }
+        //     }).then(() => {
+        //         db.User.upsert({
+        //             user_name: "Mixn",
+        //             user_type: "admin"
+        //         }).then(() => {
+        //             db.User.upsert({
+        //                 user_name: "Raza",
+        //                 user_type: "user"
+        //             }).then(() => {
+        //                 db.Review.upsert({
+        //                     "title": null,
+        //                     "festival": "Coachella",
+        //                     "overall": 4,
+        //                     "security": 3,
+        //                     "text_box": null,
+        //                     "tags": null,
+        //                     "thumbs": 0,
+        //                     "id": 1,
+        //                     "createdAt": "2017-05-10T22:00:52.000Z",
+        //                     "updatedAt": "2017-05-10T22:00:52.000Z",
+        //                     "user_id": 1,
+        //                     "festival_id" : 1
+        //                 }, {
+        //                     include: [db.User]
+        //                 }).then((resp) => {
+        //                     db.Review.upsert(, {
+        //                         include: [db.User]
+        //                     }).then((resp) => {
+        //                         console.log("***Testing Set Up Script Complete***");
+        //                     })
+        //                 })
+        //             })
+        //         })
+        //     })
+        // })
     }
 
-    var updateCreate = function() {
+    var updateCreate = function () {
         importData();
         var festivalObj = JSON.parse(fs.readFileSync('./festival_output.json', 'utf8'));
         var parsedFestival = [];
         var i = 0;
         if (i <= festivalObj.length) {
-            for(var j = 0; j < festivalObj.length; j++){
+            for (var j = 0; j < festivalObj.length; j++) {
                 parsedFestival.push(parseFestival(festivalObj[j]));
             }
             updateCreateCall(parsedFestival, i, updateCreateCall);
-        }
-        else{
+        } else {
             console.log("Something went wrong at updateCreate!");
         }
 
     }
 
-    var importData = function() {
+    var importData = function () {
         xlsxj({
             input: "./documents/festival info.xlsx",
             output: "festival_output.json"
-        }, function(err, result) {
+        }, function (err, result) {
             if (err) {
                 console.error(err);
             } else {
@@ -91,7 +160,7 @@ const SetUp = (function() {
         });
     }
 
-    var parseFestival = function(festivalObj) {
+    var parseFestival = function (festivalObj) {
         var parsedFestival = {};
 
         for (key in festivalObj) {
@@ -100,7 +169,7 @@ const SetUp = (function() {
                     parsedFestival["name"] = festivalObj["Festival Name"];
                     break;
                 case "Camping":
-                    parsedFestival["camping"] = (festivalObj["Camping"].toLowerCase() === "yes" || festivalObj["Camping"].toLowerCase() === "no") ?  festivalObj["Camping"] : "no";
+                    parsedFestival["camping"] = (festivalObj["Camping"].toLowerCase() === "yes" || festivalObj["Camping"].toLowerCase() === "no") ? festivalObj["Camping"] : "no";
                     break;
                 case "Genre":
                     parsedFestival["genre"] = festivalObj["Genre"];
@@ -118,7 +187,7 @@ const SetUp = (function() {
                     parsedFestival["location"] = festivalObj["Location"];
                     break;
                 case "Summary":
-                    parsedFestival["summary"] = (festivalObj[key].length <= 3000) ?  festivalObj[key]: festivalObj[key].substring(0, 300) + "...";
+                    parsedFestival["summary"] = (festivalObj[key].length <= 3000) ? festivalObj[key] : festivalObj[key].substring(0, 300) + "...";
                     break;
                 case "Img url":
                     parsedFestival["img_url"] = festivalObj["Img url"];
@@ -131,15 +200,14 @@ const SetUp = (function() {
         return parsedFestival;
     }
 
-    var updateCreateCall = function(parsedFestival, i, cb) {
-        if(i < parsedFestival.length){
+    var updateCreateCall = function (parsedFestival, i, cb) {
+        if (i < parsedFestival.length) {
             db.Festival.upsert(parsedFestival[i]).then((data) => {
                 i++;
                 console.log("updateCreated Festival : " + parsedFestival.name + " :/ " + data);
                 cb(parsedFestival, i, updateCreateCall);
             })
-        }
-        else{
+        } else {
             console.log("***All festivals in spreadsheet wrote into database***");
             runScript();
         }
@@ -153,3 +221,23 @@ const SetUp = (function() {
 })();
 
 module.exports = SetUp;
+
+// updateCreateUser("Tempo","user").then((data)=>{
+//     console.log(data);
+//     updateCreateUser("Beatz","user").then((data)=>{
+//         console.log(data);
+//         updateCreateUser("Mixn","admin").then((data)=>{
+//             console.log(data);
+//             updateCreateUser("Raza","user").then((data)=>{
+//                 console.log(data);
+//                 updateCreateReview(reviewOne).then((data)=>{
+//                     console.log(data);
+//                     updateCreateReview(reviewTwo).then((data)=>{
+//                         console.log(data);
+//                         console.log("***Testing Set Up Script Complete***");
+//                     })
+//                 })
+//             })
+//         })
+//     })
+// })

@@ -1,5 +1,5 @@
 mixin searchBar()
-	form.form-inline.global-search.search-nav(role='form')
+	div.form-inline.global-search.search-nav(role='form')
 		.form-group
 			label.sr-only(for='') Enter search terms
 			|  
@@ -7,5 +7,5 @@ mixin searchBar()
 			|  
 			input#cn(name='cn', type='hidden', value='false')
 			|  
-		button#s.btn.btn-default(type='submit')
+		button#s.btn.btn-default
 			span.glyphicon.glyphicon-search

@@ -94,7 +94,8 @@ module.exports = function (app) {
                 image: data.img_url,
                 overall: data.overall,
                 festivalId: data.id
-            }
+            };
+
 
             db.Review.findAll({
                 where: {

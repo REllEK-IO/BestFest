@@ -66,12 +66,13 @@ module.exports = function(app) {
                 image: data.img_url,
                 overall: data.overall,
                 festivalId: data.id
-            }
+            };
 
         db.Review.findAll({
-               where:{festival: req.params.name}
+               where:{festival: req.params.festival}
             }).then((data) => {
             reviewObj = {
+                festival: data.festival,
                 overall: data.overall,
                 security: data.security,
                 sound: data.sound,
@@ -79,12 +80,11 @@ module.exports = function(app) {
                 createdAt: data.createdAt,
                 thumbs: data.thumbs,
                 tags: data.tags,
-
             }
             
         });
             console.log(festObj);
-            console.log(reviewObj);
+            console.log(reviewObj + "this should be full");
         
     });
         //Create object for template

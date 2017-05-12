@@ -4,9 +4,9 @@ block append style
 	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/form.css", rel="stylesheet" media="screen" title="no title")
-	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Anton|Source+Code+Pro" rel="stylesheet")
+	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Coda|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Anton|Source+Code+Pro" rel="stylesheet")
 	block title
-		title What's the Vibe?
+		title WHAT'S THE VIBE?
 
 		meta(name='description', content='Website where you can review music festivals. Like a yelp for music festivals')
 		meta(name='keywords', content='music festivals, parties, music, coachella, california, party, EDM, vibes, fun, events, yelp')
@@ -41,29 +41,32 @@ block main
 					input#year-select
 
 			label Rate your experience
-			ul.rate-area
-				input#5-star(class="rating" type='radio', name='rating', value='5')
-				label(for='5-star', title='Amazing') 5 stars
-				input#4-star(class="rating" type='radio', name='rating', value='4')
-				label(for='4-star', title='Good') 4 stars
-				input#3-star(class="rating" type='radio', name='rating', value='3')
-				label(for='3-star', title='Average') 3 stars
-				input#2-star(class="rating" type='radio', name='rating', value='2')
-				label(for='2-star', title='Not Good') 2 stars
-				input#1-star(class="rating" type='radio', name='rating', value='1')
-				label(for='1-star', title='Bad') 1 star
+				ul.rate-area
+					label(for='5-star', title='Amazing') 5 stars
+					input#5-star(class="rating" type='radio', name='rating', value='5')
+					label(for='4-star', title='Good') 4 stars
+					input#4-star(class="rating" type='radio', name='rating', value='4')
+					label(for='3-star', title='Average') 3 stars
+					input#3-star(class="rating" type='radio', name='rating', value='3')
+					label(for='2-star', title='Not Good') 2 stars
+					input#2-star(class="rating" type='radio', name='rating', value='2')
+					label(for='1-star', title='Bad') 1 star
+					input#1-star(class="rating" type='radio', name='rating', value='1')
+					
 			br
 
 			label Cost overall?
-				input(class="cost" type= "radio" name="cost" value='1')
-				label Cheap
-				input(class="cost" type= "radio" name="cost" value='2')
-				label Average
-				input(class="cost" type= "radio" name="cost" value='3')
-				label Pricey
+				span.form-selectors-cost
+					input(class="cost" type= "radio" name="cost" value='1')
+					label Cheap
+					input(class="cost" type= "radio" name="cost" value='2')
+					label Average
+					input(class="cost" type= "radio" name="cost" value='3')
+					label Pricey
 			br
 
-			label How was security?           
+			label How was security? 
+				span.form-selectors-security         
 					input(class="security" type= "radio" name="security" value='1')
 					label Tight
 					input(class="security" type= "radio" name="security" value='2')
@@ -72,7 +75,8 @@ block main
 					label Lax
 			br
 
-			label How was the sound quality?           
+			label How was the sound quality?    
+				span.form-selectors-sound       
 					input(class="sound" type= "radio" name="sound" value='1')
 					label Weak
 					input(class="sound" type= "radio" name="sound" value='2')

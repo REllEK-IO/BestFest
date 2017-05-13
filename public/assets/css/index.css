@@ -94,3 +94,35 @@ button {
     display: block;
     margin-top: 240px;
 }
+
+.navbar-dark {
+    background-color: black;
+    color: black;
+    border-radius: 0;
+}
+
+.navbar-dark a {
+    color: white !important;
+}
+
+.navbar-dark a:hover {
+    color: black !important;
+    text-shadow: 0 0 2px white;
+}
+
+.active {
+    border-radius: 0px;
+    border: 0;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+
+}
+
+.active:hover {
+    background-color: white;
+
+}
+
+.navbar-dark a: hover {
+    color: black;
+}

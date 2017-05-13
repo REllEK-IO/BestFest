@@ -1,4 +1,5 @@
 extends ./templates/layout
+include ./mixins/navbar
 
 block append style
 	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
@@ -10,16 +11,22 @@ block append style
 		meta(name='keywords', content='music festivals, parties, music, coachella, california, party, EDM, vibes, fun, events, yelp')
 
 block main
+	+navbar("FestiVibez", "main-nav", "dark", "#")
+		+nav_item("/index", "dark", "active", "Home")
+		+nav_item("/form", "dark", "active", "Add Review")
+		+nav_item("/search", "dark", "active", "Search")
 	.row
 		#slide-show.container-fluid
-			.left.bar-content.activeIndex Home
-			.left.bar-content Share Your Vibe
-			.left.bar-content Festivals
-			.left.bar-content Gear
-			.right.bar-content Login 
-			.right.bar-content.activeIndex Sign Up
+			//- .left.bar-content.activeIndex Home
+			//- .left.bar-content Share Your Vibe
+			//- .left.bar-content Festivals
+			//- .left.bar-content Gear
+			//- .right.bar-content Login 
+			//- .right.bar-content.activeIndex Sign Up
 			img#festivibez(src="./assets/img/festivibez_logo.svg", alt="Festivibez")
+
 			form.form-inline.global-search#search(role='form')
+
 				.form-group
 					label.sr-only(for='') Enter search terms
 					|  
@@ -29,6 +36,7 @@ block main
 				|  
 				button#s.btn.btn-default(type='submit')
 					span.glyphicon.glyphicon-search
+
 			
 
 			//- .bottom-right

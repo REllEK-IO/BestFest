@@ -1,3 +1,7 @@
+body{
+    background-repeat: repeat !important;
+}
+
 .temp-bar {
     background-color: grey;
     width: 100%;

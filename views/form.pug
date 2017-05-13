@@ -56,31 +56,31 @@ block main
 
 			label Cost overall?
 				span.form-selectors-cost
-					input(class="cost" type= "radio" name="cost" value='1')
+					input(class="cost" type= "radio" name="cost" score='Cheap')
 					label Cheap
-					input(class="cost" type= "radio" name="cost" value='2')
+					input(class="cost" type= "radio" name="cost" score='Average')
 					label Average
-					input(class="cost" type= "radio" name="cost" value='3')
+					input(class="cost" type= "radio" name="cost" score='Pricey')
 					label Pricey
 			br
 
 			label How was security? 
 				span.form-selectors-security         
-					input(class="security" type= "radio" name="security" value='1')
+					input(class="security" type= "radio" name="security" score='Tight')
 					label Tight
-					input(class="security" type= "radio" name="security" value='2')
+					input(class="security" type= "radio" name="security" score='Average')
 					label Average
-					input(class="security" type= "radio" name="security" value='3')
+					input(class="security" type= "radio" name="security" score='Lax')
 					label Lax
 			br
 
 			label How was the sound quality?    
 				span.form-selectors-sound       
-					input(class="sound" type= "radio" name="sound" value='1')
+					input(class="sound" type= "radio" name="sound" score='Weak')
 					label Weak
-					input(class="sound" type= "radio" name="sound" value='2')
+					input(class="sound" type= "radio" name="sound" score='Average')
 					label Average
-					input(class="sound" type= "radio" name="sound" value='3')
+					input(class="sound" type= "radio" name="sound" score='Bumpin')
 					label Bumpin'
 			br
 
@@ -91,7 +91,7 @@ block main
 			textarea(id= "text-review", name='text_box')
 			br
 
-			button#submit submit
+			button#enter submit
 
 block scripts
 	script(src="./assets/js/form.js")

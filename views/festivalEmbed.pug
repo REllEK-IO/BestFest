@@ -9,7 +9,6 @@ block append style
   //- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
-  -var reviews = (data.reviews !== undefined) ? data.reviews : [{}]
   .row.festival-wrapper
     .col-lg-1
     .col-lg-10
@@ -20,8 +19,8 @@ block main
     .row
      .col-lg-1.noborder
      .col-lg-10.review-container
-     each val in reviews
-      +userReview(val.avatar, val.createdAt, val.sound, val.crowd, val.security, val.cost, val.overall, val.text, val.thumbs)
+        each val in reviews
+          +userReview(val.avatar, val.createdAt, val.sound, val.crowd, val.security, val.cost, val.overall, val.text, val.thumbs)
 
 block scripts
  scripts(src="../assets/js/reviews.js")

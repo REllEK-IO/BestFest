@@ -79,34 +79,36 @@ module.exports = function (app) {
         var user = req.body.user;
         var festival = req.body.festival;
 
+        console.log(req.body);
+
         for (key in req.body) {
             switch (key) {
                 case "title":
-                    newReview["title"] = req.body[key];
+                    newReview["title"] = req.body["title"];
                     break;
                 case "festival":
-                    newReview["festival"] = req.body[key];
+                    newReview["festival"] = req.body["festival"];
                     break;
                 case "overall":
-                    newReview["overall"] = Number(req.body[key]);
+                    newReview["overall"] = Number(req.body["overall"]);
                     break;
                 case "security":
-                    newReview["security"] = Number(req.body[key]);
+                    newReview["security"] = req.body["security"];
                     break;
                 case "text_body":
-                    newReview["text_body"] = req.body[key];
+                    newReview["text_body"] = req.body["text_body"];
                     break;
                 case "tags":
-                    newReview["tags"] = req.body[key];
+                    newReview["tags"] = req.body["tags"];
                     break;
                 case "year":
-                    newReview["year"] = req.body[key];
+                    newReview["year"] = req.body["year"];
                     break;
                 case "cost":
-                    newReview["cost"] = Number(req.body[key]);
+                    newReview["cost"] = req.body["cost"];
                     break;
                 case "sound":
-                    newReview["sound"] = Number(req.body[key]);
+                    newReview["sound"] = req.body["sound"];
                     break;
             }
         }

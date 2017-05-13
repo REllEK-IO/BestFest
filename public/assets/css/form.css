@@ -227,3 +227,7 @@ input[name="title"]{
 .form-selectors-sound{
   margin-left: 2em;
 }
+
+.red{
+    border: 2px dotted red;
+}

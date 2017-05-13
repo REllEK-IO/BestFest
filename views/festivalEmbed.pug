@@ -9,7 +9,7 @@ block append style
   //- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Source+Code+Pro" rel="stylesheet")
 
 block main
-  -var reviews = (data.reviews !== undefined) ? data.reviews : []
+  -var reviews = (data.reviews !== undefined) ? data.reviews : [{}]
   .row.festival-wrapper
     .col-lg-1
     .col-lg-10

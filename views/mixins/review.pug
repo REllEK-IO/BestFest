@@ -1,24 +1,24 @@
-mixin userReview(datePosted, sound, security, cost, stars, review, thumbs)
+mixin userReview(datePosted, sound, security, cost, stars, review, thumbs, title)
 	-var datePosted = (typeof datePosted === undefined) ? "May 1, 2017" : datePosted
 	//- Edit all of these
 	-var sound = (typeof sound === undefined) ? "Bumpin'" : sound
 	-var security = (typeof security === undefined) ? "Tight" : security
 	//- 
-	-var stars = (typeof stars === undefined) ? stars : 4
 	-var review = (typeof review === undefined) ? "Anon was here" : review
 	.row.user-info
 		.col-md-4.user-profile.text-info
 			img.user-avatar(src="../assets/images/user1avatar.png")
 			h6.date-header Date Posted 
 				span.date-posted !{datePosted}
-			ul#user-other-ratings
-				li.user-other-ratings Sound: 
-					span.festival-sound !{sound}
-				li.user-other-ratings Security: 
-					span.festival-security !{security}
-				li.user-other-ratings Cost: 
-					span.festival-cost !{cost}
+			ul#user-other-ratings.text-info
+				li.user-other-ratings.text-info Sound: 
+					span.festival-sound.text-info !{sound}
+				li.user-other-ratings.text-info Security: 
+					span.festival-security.text-info !{security}
+				li.user-other-ratings.text-info Cost: 
+					span.festival-cost.text-info !{cost}
 			//- span.divider
+
 		.col-md-8.block-4.user-review-container
 
 			h3#user-vibez VIBEZ
@@ -29,11 +29,7 @@ mixin userReview(datePosted, sound, security, cost, stars, review, thumbs)
 				-for(var i = 0; i < (5 - stars); i++){
 					i.glyphicon.glyphicon-star-empty(aria-hidden="true")
 				-}
-			//- span#one-star ☆
-			//- span#two-stars ☆
-			//- span#three-stars ☆
-			//- span#four-stars ☆
-			//- span#five-stars ☆
+			h3 !{title}
 			p#user-text-review 
 				span !{review}
 			span#like-button

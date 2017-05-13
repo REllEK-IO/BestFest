@@ -187,7 +187,7 @@ const SetUp = (function () {
                     parsedFestival["location"] = festivalObj["Location"];
                     break;
                 case "Summary":
-                    parsedFestival["summary"] = (festivalObj[key].length <= 3000) ? festivalObj[key] : festivalObj[key].substring(0, 300) + "...";
+                    parsedFestival["summary"] = festivalObj["Summary"];
                     break;
                 case "Img url":
                     parsedFestival["img_url"] = festivalObj["Img url"];

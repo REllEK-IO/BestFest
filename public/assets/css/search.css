@@ -11,10 +11,11 @@ th {
     background: white;
     color: #0f0917;
     font-size: 18px;
-    border-right: solid 2px black;;
+    border-right: solid 2px black;
+    ;
 }
 
-a{
+a {
     font-size: larger;
     font-family: 'Cinzel Decorative', cursive;
     text-decoration-line: none;
@@ -26,9 +27,14 @@ img.circle {
     width: 200px;
     height: auto;
     border-radius: 500px;
-    margin:10px;
+    margin: 10px;
 }
 
 tr:nth-child(odd) {
     background-color: #212b37;
+}
+
+img:hover {
+    -webkit-filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg);
 }

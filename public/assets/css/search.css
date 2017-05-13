@@ -1,5 +1,5 @@
 table {
-    background: #0f0917;
+    background: rgba(15, 9, 23, .8);
     margin: 0 auto;
     width: 95%;
     border: solid 2px white;
@@ -37,7 +37,11 @@ img.circle {
 }
 
 tr:nth-child(odd) {
-    background-color: #212b37;
+    background-color: rgba(33, 43, 55, .8);
+}
+
+th {
+    padding-right: 40px;
 }
 
 img:hover {

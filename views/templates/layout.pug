@@ -9,8 +9,10 @@ html
         -var bootrapScripts= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js";
         -var jqueryCDN= "https://code.jquery.com/jquery.js";
         -var pageStyle= "./assets/css/styles.css";
+        -var jqueryuiCDN= "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
         link(href=bootstrap, rel="stylesheet")
         link(href=pageStyle, rel="stylesheet" media="screen" title="no title")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css", rel="stylesheet" media="screen" title="no title")
         script(src=jqueryCDN)
         script(src=bootrapScripts)
         block style
@@ -18,3 +20,5 @@ html
     body
         block main
             h1 !!!!Success!!!!
+script(src=jqueryuiCDN)
+block script

@@ -95,7 +95,7 @@ module.exports = function (app) {
                 stars: data.overall,
                 festivalId: data.id
             };
-            return db.Review.findAll({
+            db.Review.findAll({
                 where: {
                     festival: festivalName
                 }

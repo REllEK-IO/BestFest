@@ -2,7 +2,8 @@ $(document).ready(function(){
     $("#submit").click(function(){
         $.post("http://" + window.location.host +"/api/review",
         {
-            user: localStorage.getItem("userName"),
+            // user: localStorage.getItem("userName"),
+            user : "User",
             festival : $("#select-name").val().trim(),
             year : $("#year-select").val().trim(),
             overall : $("input[type=radio][name=rating]:checked").val().trim(),

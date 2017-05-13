@@ -12,32 +12,20 @@ module.exports = function(sequelize, DataTypes) {
         title: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Festival Name
         festival: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
         },
         year: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Overall score of festival
         overall: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
         },
         cost: {
             type: DataTypes.ENUM('Cheap','Average','Pricey'),

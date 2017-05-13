@@ -1,24 +1,19 @@
-mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review )
-	-var avatar = (typeof avatar === "undefined") ? "../assets/images/user1avatar.png" : avatar
+mixin userReview(datePosted, sound, security, cost, stars, review, thumbs)
 	-var datePosted = (typeof datePosted === undefined) ? "May 1, 2017" : datePosted
 	//- Edit all of these
 	-var sound = (typeof sound === undefined) ? "Bumpin'" : sound
-	-var crowd = (typeof crowd === undefined) ? "Chill" : crowd
 	-var security = (typeof security === undefined) ? "Tight" : security
-	-var cost = (typeof cost === undefined) ? "Average" : cost
 	//- 
 	-var stars = (typeof stars === undefined) ? stars : 4
 	-var review = (typeof review === undefined) ? "Anon was here" : review
 	.row.user-info
 		.col-md-4.user-profile.text-info
-			img.user-avatar(src=avatar)
+			img.user-avatar(src="../assets/images/user1avatar.png")
 			h6.date-header Date Posted 
 				span.date-posted !{datePosted}
 			ul#user-other-ratings
 				li.user-other-ratings Sound: 
 					span.festival-sound !{sound}
-				li.user-other-ratings Crowd: 
-					span.festival-crowd !{crowd}
 				li.user-other-ratings Security: 
 					span.festival-security !{security}
 				li.user-other-ratings Cost: 

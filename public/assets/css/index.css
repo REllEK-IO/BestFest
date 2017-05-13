@@ -1,9 +1,9 @@
 body {
-    background-color: #493966;
-    color: white;
-    background-image: url(../images/bgpic5.jpeg);
+    background-color: black;
+    /*color: white;*/
+   /* background-image: url(../images/bgpic5.jpeg);
     background-repeat: no-repeat;
-    align-content: center;
+    align-content: center;*/
     
 
 }
@@ -54,6 +54,9 @@ button {
     position: relative;
 }
 
+#search{
+    margin-top: -350px;
+}
 
 /*Arrow Controls*/
 

@@ -45,7 +45,8 @@ button{
     letter-spacing: 0px;
     font-family: 'Roboto Condensed', sans-serif;
     padding-left:0em;
-
+    width: 50%;
+    margin: 0 auto;
 /*    text-align: center;*/
 }
 
@@ -57,19 +58,20 @@ h2 {
     border-radius: 6px;
     box-shadow: 5px 5px 10px black;
     font-size: 50px;
-    margin-top: -5px;
-    margin-right: 50px;
-    margin-left: 50px;
     font-family: 'Pontano Sans', sans-serif;
-    margin-bottom: 20px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 8px;
     border-top-right-radius: 40px;
+    width: 500px;
+   margin: 0 auto;
+      margin-top: -5px;
+        margin-bottom: 20px;
 }
 
 #user-inputs {
-  padding-left: 4em;
+  text-align: left;
+  margin-left: 15%;
 }
 
 #text-review {

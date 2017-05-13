@@ -61,9 +61,12 @@ h4 {
     float: right;
 }
 
+a:hover { 
+    color: black;}
+
 .navbar-dark {
     background-color: #321f4b;
-    color: white;
+    color: black;
     border-radius: 0;
 }
 
@@ -72,7 +75,7 @@ h4 {
 }
 
 .navbar-dark a:hover {
-    color: white !important;
+    color: black !important;
     text-shadow: 0 0 2px white;
 }
 
@@ -81,10 +84,16 @@ h4 {
     border: 0;
     border-left: 1px solid grey;
     border-right: 1px solid grey;
+
 }
 
 .active:hover {
     background-color: white;
+
+}
+
+.navbar-dark a: hover {
+    color: black;
 }
 
 /*Postions searchbar in nav*/
@@ -99,11 +108,14 @@ h4 {
 
 
 /*Center Search Bar for index*/
+.global-search {
+padding: 400px;
+}
 
 .global-search {
     text-align: center;
-    padding: 10px;
-    margin-top: 10px;
+    /*padding: 600px;*/
+   /* margin-top: 10px;*/
 }
 
 .global-search * {
@@ -122,11 +134,12 @@ h4 {
 
 @media (min-width:400px) {
     .global-search {
-        padding: 20px 0;
+        /*padding: 20px 0;*/
         text-align: center;
     }
     .global-search .form-control {
         width: 300px;
+
     }
 }
 

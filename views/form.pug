@@ -4,6 +4,7 @@ block append style
 	link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/index.css", rel="stylesheet" media="screen" title="no title")
 	link(href="./assets/css/form.css", rel="stylesheet" media="screen" title="no title")
+
 	//- link(href="https://fonts.googleapis.com/css?family=Architects+Daughter|Audiowide|Coda|Cinzel+Decorative|Comfortaa|Fjalla+One|Gruppo|Kavivanar|Poiret+One|Roboto+Condensed|Anton|Source+Code+Pro" rel="stylesheet")
 	block title
 		title What's the vibe?
@@ -16,10 +17,11 @@ block main
 	div(id= "main-form")
 
 		h2.text-center What's the vibe?
-
-		div#user-inputs
-			label #[span.fest-name Festival Name:]            
-				select#select-name(name='festival')
+		.row
+			.col-md-3
+			.col-md-6
+				label #[span.fest-name Festival Name:]            
+				select#select-name.right(name='festival')
 					option 
 					option Beyond Wonderland
 					option Coachella
@@ -36,62 +38,65 @@ block main
 					option Stagecoach
 					option Symbiosis
 
-			div
-				label #[span.fest-year What year(s) did you go?]         
-					input#year-select
+				div
+					label #[span.fest-year What year(s) did you go?]         
+					input.right#year-select
 
-			label Rate your experience
-				ul.rate-area
-					input#5-star(class="rating" type='radio', name='rating', value='5')
-					label(for='5-star', title='Amazing') 5 stars
-					input#4-star(class="rating" type='radio', name='rating', value='4')
-					label(for='4-star', title='Good') 4 stars
-					input#3-star(class="rating" type='radio', name='rating', value='3')
-					label(for='3-star', title='Average') 3 stars
-					input#2-star(class="rating" type='radio', name='rating', value='2')
-					label(for='2-star', title='Not Good') 2 stars
-					input#1-star(class="rating" type='radio', name='rating', value='1')
-					label(for='1-star', title='Bad') 1 star
-			br
+				label Rate your experience
+					ul.rate-area
+						input#5-star(class="rating" type='radio', name='rating', value='5')
+						label(for='5-star', title='Amazing') 5 stars
+						input#4-star(class="rating" type='radio', name='rating', value='4')
+						label(for='4-star', title='Good') 4 stars
+						input#3-star(class="rating" type='radio', name='rating', value='3')
+						label(for='3-star', title='Average') 3 stars
+						input#2-star(class="rating" type='radio', name='rating', value='2')
+						label(for='2-star', title='Not Good') 2 stars
+						input#1-star(class="rating" type='radio', name='rating', value='1')
+						label(for='1-star', title='Bad') 1 star
+				br
 
-			label Cost overall?
-				span.form-selectors-cost
+				label Cost overall?
+				<br>
+				span.right
 					input(class="cost" type= "radio" name="cost" score='Cheap')
 					label Cheap
 					input(class="cost" type= "radio" name="cost" score='Average')
 					label Average
 					input(class="cost" type= "radio" name="cost" score='Pricey')
 					label Pricey
-			br
+				br
 
-			label How was security? 
-				span.form-selectors-security         
+				label How was security? 
+				<br>
+				span.right         
 					input(class="security" type= "radio" name="security" score='Tight')
 					label Tight
 					input(class="security" type= "radio" name="security" score='Average')
 					label Average
 					input(class="security" type= "radio" name="security" score='Lax')
 					label Lax
-			br
+				br
 
-			label How was the sound quality?    
-				span.form-selectors-sound       
+				label How was the sound quality?
+				<br>    
+				span.right       
 					input(class="sound" type= "radio" name="sound" score='Weak')
 					label Weak
 					input(class="sound" type= "radio" name="sound" score='Average')
 					label Average
 					input(class="sound" type= "radio" name="sound" score='Bumpin')
 					label Bumpin'
-			br
+				<br>
 
-			label Tell us more:
-			br
-			input#title(type='text', name='title', placeholder="Title (optional)")
-			br
-			textarea(id= "text-review", name='text_box')
-			br
-
-			button#enter submit
+				label Tell us more:
+				br
+				input#title(type='text', name='title', placeholder="Title (optional)")
+				br
+				textarea(id= "text-review", name='text_box')
+				br
+				button#enter.right.btn.btn-info Submit 
+					i.fa.fa-arrow-right
 
 block scripts
 	script(src="./assets/js/form.js")

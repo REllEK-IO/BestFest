@@ -29,6 +29,6 @@ $(document).ready(function () {
     });
 });
 
-$("#submit").click(function () {
+$("#enter").click(function () {
     window.location.href = "/festival/" + $("#select-name").val();
 });

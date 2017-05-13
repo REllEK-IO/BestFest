@@ -94,6 +94,10 @@ module.exports = function (app) {
                 stars: data.overall,
                 festivalId: data.id
             };
+            res.render("festivalEmbed", {
+                        data: data,
+                        // dataRev:dataRev,
+                    });
             db.Review.findAll({
                 where: {
                     festival: festivalName

@@ -115,29 +115,30 @@ module.exports = function (app) {
                             tags: dataRev[i].tags
                         });
                     }
-                    festObj["reviews"] = reviewArr;
                     console.log("******************//////", festObj);
 
                 } else {
                     reviewArr.push({
+                        title : dataRev.title,
+                        festival : dataRev.festival,
                         overall: dataRev.overall,
                         security: dataRev.security,
                         sound: dataRev.sound,
                         cost: dataRev.cost,
-                        text: dataRev.text_box,
+                        text: dataRev.text_body,
                         createdAt: dataRev.createdAt,
                         thumbs: dataRev.thumbs,
                         tags: dataRev.tags
                     });
-                    festObj["reviews"] = reviewArr;
                     console.log("******************///else///", festObj);
                 }
                 res.render("festivalEmbed", {
                     data: festObj,
+                    reviews: reviewArr
                     // dataRev:dataRev,
                 });
-            }).catch(err => res.status(404).send("Meeting not found"));
-        }).catch(err => res.status(404).send("Meeting not found"));
+            })
+        })
 
     });
 

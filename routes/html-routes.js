@@ -106,13 +106,16 @@ module.exports = function (app) {
                 if (dataRev.length > 0) {
                     for (var i = 0; i < dataRev.length; i++) {
                         reviewArr.push({
-                            overall: dataRev[i].overall,
-                            security: dataRev[i].security,
-                            sound: dataRev[i].sound,
-                            text: dataRev[i].text_box,
-                            createdAt: dataRev[i].createdAt,
-                            thumbs: dataRev[i].thumbs,
-                            tags: dataRev[i].tags
+                        title : dataRev[i].title,
+                        festival : dataRev[i].festival,
+                        overall: dataRev[i].overall,
+                        security: dataRev[i].security,
+                        sound: dataRev[i].sound,
+                        cost: dataRev[i].cost,
+                        text: dataRev[i].text_body,
+                        createdAt: dataRev[i].createdAt,
+                        thumbs: dataRev[i].thumbs,
+                        tags: dataRev[i].tags
                         });
                     }
                     console.log("******************//////", festObj);

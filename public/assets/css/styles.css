@@ -165,3 +165,7 @@ h4 {
     height: 100px;
     width: auto;
 }
+
+.colorStar{
+    color : rgb(0, 255, 255);
+}

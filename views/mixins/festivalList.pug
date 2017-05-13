@@ -1,5 +1,5 @@
 mixin festivalList(image, festival, overall, genre, location, dates, website)
-	-var festivalPage = "./festival/" + festival
+	-var festivalPage = "../festival/" + festival
 	.row
 	.col-lg-1
 	.col-lg-1.result-block-md
@@ -18,7 +18,7 @@ mixin festivalList(image, festival, overall, genre, location, dates, website)
 		a.btn.btn-default.btn-sm(href=website) Link
 
 mixin festivalTable(image, festival, overall, genre, location, dates, website)
-	-var festivalPage = "./festival/" + festival
+	-var festivalPage = "../festival/" + festival
 	tr
 		td 
 			img.circle(src=image, alternate=image)

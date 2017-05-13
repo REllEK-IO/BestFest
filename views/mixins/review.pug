@@ -10,16 +10,16 @@ mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review
 	-var stars = (typeof stars === "integer") ? stars : 4
 	- var review = (typeof review === "undefined") ? "Anon was here" : review
 	.row.user-info
-		.col-md-4.user-profile
+		.col-md-4.block-3.user-profile
 			img.user-avatar(src=avatar)
 			h6.date-header Date Posted #[span.date-posted datePosted]
 			ul#user-other-ratings
-				li.user-other-ratings Sound: #[span.festival-sound sound]
-				li.user-other-ratings Crowd: #[span.festival-crowd crowd]
-				li.user-other-ratings Security: #[span.festival-security security]
-				li.user-other-ratings Cost: #[span.festival-security cost]
+				li.user-other-ratings SOUND: #[span.festival-sound sound]
+				//- li.user-other-ratings Crowd: #[span.festival-crowd crowd]
+				li.user-other-ratings SECURITY: #[span.festival-security security]
+				li.user-other-ratings COST: #[span.festival-security cost]
 			//- span.divider
-		.col-md-8.user-review-container
+		.col-md-8.block-4.user-review-container
 
 			h3#user-vibez VIBEZ
 			.user-star-ratings

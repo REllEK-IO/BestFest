@@ -24,11 +24,18 @@ mixin festivalTable(image, festival, overall, genre, location, dates, website)
 			a(href=festivalPage)
 				img.circle(src=image, alternate=image)
 		td 
-			a(href=festivalPage) !{festival}
-		td !{overall}
+			a.fancy(href=festivalPage) !{festival}
+		td
+			-for(var i = 0; i < overall; i++){
+				i.glyphicon.glyphicon-star.colorStar(aria-hidden="true")
+			-}
+			-for(var i = 0; i < (5 - overall); i++){
+				i.glyphicon.glyphicon-star-empty.colorStar(aria-hidden="true")
+			-}
 		td !{genre}
 		td !{location}
 		td !{dates}
 		td
-			a.btn.btn-default.btn-sm(href=website) Link
+			a.btn.btn-default(href=website) 
+				i.fa.fa-external-link
 		

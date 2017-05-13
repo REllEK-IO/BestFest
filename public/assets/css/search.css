@@ -16,6 +16,12 @@ th {
 }
 
 a {
+
+    
+}
+
+.fancy{
+    color: rgb(0, 255, 255);
     font-size: larger;
     font-family: 'Cinzel Decorative', cursive;
     text-decoration-line: none;
@@ -37,4 +43,13 @@ tr:nth-child(odd) {
 img:hover {
     -webkit-filter: hue-rotate(180deg);
     filter: hue-rotate(180deg);
+}
+
+.fa{
+    text-shadow: 0 0 5px black;
+}
+
+.btn{
+    margin: 10px;
+    border-radius: 15px;
 }

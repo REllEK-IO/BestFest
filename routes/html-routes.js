@@ -84,8 +84,9 @@ module.exports = function (app) {
                 name: festivalName
             }
         }).then((data) => {
+            var name = data.name.toUpperCase();
             festObj = {
-                name: data.name,
+                name,
                 location: data.location,
                 dates: data.dates,
                 camping: data.camping,

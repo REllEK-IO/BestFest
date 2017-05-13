@@ -18,9 +18,10 @@ block main
 
 		h2.text-center What's the vibe?
 		.row
-			.col-md-3
-			.col-md-6
-				label #[span.fest-name Festival Name:]            
+			.col-lg-2.col-sm-1
+			.col-lg-8.col-sm-10
+				label #[span.fest-name Festival Name:]
+				br         
 				select#select-name.right(name='festival')
 					option 
 					option Beyond Wonderland
@@ -37,9 +38,10 @@ block main
 					option Snowglobe
 					option Stagecoach
 					option Symbiosis
-
+				br
 				div
-					label #[span.fest-year What year(s) did you go?]         
+					label #[span.fest-year What year(s) did you go?]       
+					br  
 					input.right#year-select
 
 				label Rate your experience

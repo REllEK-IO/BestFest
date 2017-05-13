@@ -225,6 +225,7 @@ h3 {
 	color: black;
 	margin-left: 30px;
 	margin-right:0px;
+	border-bottom: black solid 3px;
 	
 	/*border-top: black 3px solid;*/
 	/*margin-top: 10px;*/
@@ -239,7 +240,7 @@ h3 {
 	border-top-right-radius: 15px;
 }*/
 
-#user-reviews-container > div > div.col-lg-10.review-container > div:first-child > div.col-md-4.user-profile {
+/*#user-reviews-container > div > div.col-lg-10.review-container > div:first-child > div.col-md-4.user-profile {
     border-top-left-radius: 15px;
     border-top: black solid 3px;
     border-left: black solid 3px;
@@ -249,7 +250,6 @@ h3 {
 #user-reviews-container > div > div.col-lg-10.review-container > div:first-child > div.col-md-8.user-review-container {
     border-top-right-radius: 15px;
     border-top: black solid 3px;
-    /*border-left: black solid 3px*/;
 	border-right: black solid 3px;
 
     }
@@ -261,7 +261,7 @@ h3 {
     border-bottom-right-radius: 15px;
     }
 
-
+*/
 h6 {
 	/*font-family: 'Roboto Condensed', sans-serif;*/
 	font-size: 16px;
@@ -275,11 +275,11 @@ h6 {
 }
 
 .user-other-ratings{
-	margin-right: 60px;
+	margin-right: 40px;
 	font-size: 18px;
 	font-family: 'Anton', sans-serif;
 	color: white;
-	  font-family: 'Audiowide', cursive;
+	 font-family: 'Audiowide', cursive;
 }
 
 .noborder{
@@ -370,9 +370,9 @@ i.glyphicon.glyphicon-star{
 
 }
 
-.festival-sound ,.festival-security, .festival-security {
-	font-family: 'Cinzel Decorative', cursive;
-	font-weight: bold;
+.festival-sound ,.festival-security, .festival-cost {
+	font-family: 'Anton', sans-serif;
+	font-weight: 'Roboto Condensed', sans-serif;
 }
 #thumbs {
 	margin-left: 10px;

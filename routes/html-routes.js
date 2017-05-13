@@ -28,21 +28,20 @@ module.exports = function (app) {
         });
     });
     app.get("/search/:term", function (req, res) {
-        if(req.params.term.trim() === "" || req.params.term === "undefined"){
+        if (req.params.term.trim() === "" || req.params.term === "undefined") {
             res.redirect("/search");
         }
-         db.Festival.findAll({
-            where: [    
+        db.Festival.findAll({
+            where: [
                 "name like ?",
                 '%' + req.params.term + '%'
             ]
-        }).then(function(data){
-            if(data.length > 1){
+        }).then(function (data) {
+            if (data.length > 1) {
                 res.render("searchEmbed", {
                     data: data
                 });
-            }
-            else{
+            } else {
                 console.log(data);
                 res.redirect("/festival/" + data[0].name);
             }
@@ -76,7 +75,7 @@ module.exports = function (app) {
     app.get("/festival/:name", function (req, res) {
         // //Query db.festival for props
         var festivalName = req.params.name;
-        console.log("///////////////////////////////////"+festivalName+req.params.name);
+        console.log("///////////////////////////////////" + festivalName + req.params.name);
         var festObj;
         var reviewArr = [];
         db.Festival.findOne({
@@ -102,20 +101,25 @@ module.exports = function (app) {
             }).then((dataRev) => {
                 //Pushes reviews into an array
                 console.log(dataRev.length);
-                if(dataRev.length >= 0){
+                if (dataRev.length >= 0) {
                     for (var i = 0; i < dataRev.length; i++) {
-                    reviewArr.push({
-                        overall: dataRev[i].overall,
-                        security: dataRev[i].security,
-                        sound: dataRev[i].sound,
-                        text: dataRev[i].text_box,
-                        createdAt: dataRev[i].createdAt,
-                        thumbs: dataRev[i].thumbs,
-                        tags: dataRev[i].tags
+                        reviewArr.push({
+                            overall: dataRev[i].overall,
+                            security: dataRev[i].security,
+                            sound: dataRev[i].sound,
+                            text: dataRev[i].text_box,
+                            createdAt: dataRev[i].createdAt,
+                            thumbs: dataRev[i].thumbs,
+                            tags: dataRev[i].tags
                         });
                     }
-                }
-                else{
+                    festObj["reviews"] = reviewArr;
+                    res.render("festivalEmbed", {
+                        data: data,
+                        // dataRev:dataRev,
+                    });
+                    console.log("******************//////", festObj);
+                } else {
                     reviewArr.push({
                         overall: dataRev.overall,
                         security: dataRev.security,
@@ -125,18 +129,22 @@ module.exports = function (app) {
                         createdAt: dataRev.createdAt,
                         thumbs: dataRev.thumbs,
                         tags: dataRev.tags
-                        });
-                }
-                //This sets prop reviews to the array we created
-                //Use each reviews inside pug to extract it
-                festObj["reviews"] = reviewArr;
-                 res.render("festivalEmbed",  {
-                    data: data,
-                    // dataRev:dataRev,
-                });
-                //Add Your render after this
-                console.log("******************//////",festObj);
+                    });
+                    festObj["reviews"] = reviewArr;
+                    res.render("festivalEmbed", {
+                        data: data,
+                        // dataRev:dataRev,
+                    });
+                    console.log("******************//else////", festObj);
+                };
             });
+
+            //This sets prop reviews to the array we created
+            //Use each reviews inside pug to extract it
+
+
+            //Add Your render after this
+
         });
 
     });

@@ -70,7 +70,8 @@ h2 {
 }
 
 #text-review {
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     height: 200px;
     text-align: top;
 }
@@ -82,7 +83,7 @@ button {
 .rate-area {
     /* float: left;*/
     border-style: none;
-    /* margin-left: 3em;*/
+     /*margin-left: 50px;*/
 }
 
 .rate-area:not(:checked)>input {
@@ -130,7 +131,7 @@ button {
 .rate-area>label:active {
     position: relative;
     top: 2px;
-    left: 2px;
+    right: 2px;
 }
 
 .rate-area {
@@ -164,7 +165,9 @@ input[name="sound"] {
 }
 
 input[name="title"] {
-    width: 400px;
+    margin-bottom: -20px;
+    max-width: 400px;
+    width: 90%;
 }
 
 .black-bg {
@@ -242,7 +245,18 @@ input[name="title"] {
 .red {
     border: 2px dotted red;
 }
-#enter{
-    margin-right: 75px;
-    margin-top: 10px;
+
+#enter {
+    margin-right: 85px;
+    margin-top: 0px;
+}
+
+#title {
+    display: block;
+    margin: 0 auto;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto;
 }

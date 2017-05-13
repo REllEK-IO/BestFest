@@ -1,7 +1,8 @@
 body{
-	/*background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),*/
-    
-			background-image: url("../images/bgpics/bg-pic1.png");
+    background-image: url("../images/bgpics/bg-pic1.png");
+    background-repeat: repeat !important;
+}
+
 
 /*	 #7B00F2;*/
 	/*lightblue;*/
@@ -9,7 +10,7 @@ body{
 	/*#D00EFF;*/
 	/*#FFB40C;*/
 	/*#ef5411;*/
-}
+
 #main-nav{
 	background-color: black;
 	opacity: .7;

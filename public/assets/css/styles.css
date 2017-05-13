@@ -1,9 +1,12 @@
 body{
-    background-repeat: repeat !important;
+    /*background-repeat: repeat !important;*/
+     /*color: white;*/
+    
+    
 }
 
 .temp-bar {
-    background-color: grey;
+    /*background-color: grey;*/
     width: 100%;
     height: 50px;
 }
@@ -19,8 +22,8 @@ body{
 }
 
 body {
-    background-color: #493966;
-    color: red;
+   /* background-color: #493966;
+    color: red;*/
 }
 
 #main-form {
@@ -42,10 +45,10 @@ button {
     margin-top: 6px;
 }
 
-h4 {
+/*h4 {
     font-size: smaller;
     color: grey;
-}
+}*/
 
 .footer {
     background-color: rgba(50, 50, 50, .5);

@@ -22,6 +22,7 @@
 
 body {
     background-image: url("../images/bgpics/bg-pic1.png");
+       background-repeat: repeat !important;
     color: black;
     font-size: 18px;
 }

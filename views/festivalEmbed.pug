@@ -20,7 +20,7 @@ block main
      .col-lg-1.noborder
      .col-lg-10.review-container
         each val in reviews
-          +userReview(val.createdAt, val.sound, val.security, val.cost, val.overall, val.text, val.thumbs)
+          +userReview(val.createdAt, val.sound, val.security, val.cost, val.overall, val.text, val.thumbs, val.title)
 
 block scripts
  scripts(src="../assets/js/reviews.js")

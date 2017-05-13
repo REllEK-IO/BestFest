@@ -20,8 +20,9 @@ mixin festivalList(image, festival, overall, genre, location, dates, website)
 mixin festivalTable(image, festival, overall, genre, location, dates, website)
 	-var festivalPage = "../festival/" + festival
 	tr
-		td 
-			img.circle(src=image, alternate=image)
+		td
+			a(href=festivalPage)
+				img.circle(src=image, alternate=image)
 		td 
 			a(href=festivalPage) !{festival}
 		td !{overall}

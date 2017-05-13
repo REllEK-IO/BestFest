@@ -64,9 +64,9 @@ h2 {
     border-bottom-right-radius: 8px;
     border-top-right-radius: 40px;
     width: 500px;
-   margin: 0 auto;
-      margin-top: -5px;
-        margin-bottom: 20px;
+    margin: 0 auto;
+    margin-top: -5px;
+    margin-bottom: 20px;
 }
 
 #user-inputs {
@@ -114,7 +114,6 @@ button {
   color: gold;
   text-shadow: 1px 1px #c60;
   font-size: 150% !important;
-
 }
 
 .rate-area:not(:checked) > label:hover, .rate-area:not(:checked) > label:hover ~ label { color: gold; }
@@ -131,15 +130,14 @@ button {
 }
 
 .rate-area {
-  /*  padding-left: 0px;
-    margin-bottom: 0px;*/
+  /*  padding-left: 0px;*/
+    margin-bottom: 0px;
     /*margin-right: 400px;*/
     float: right;
 
 }
 
 label::before {
-    padding: 0px;
 }
 
 .footer {

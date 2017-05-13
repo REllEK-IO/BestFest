@@ -1,0 +1,20 @@
+table {
+    background: #0f0917;
+    margin: 0 auto;
+    width: 95%;
+    border: solid 2px white;
+}
+
+th {
+    text-align: left;
+    background: white;
+    color: #0f0917;
+    font-size: 18px;
+    border-right: solid 2px black;;
+}
+
+
+img.circle {
+    width: 300px;
+    height: auto;
+}

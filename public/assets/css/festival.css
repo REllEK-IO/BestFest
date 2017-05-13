@@ -148,8 +148,9 @@ li {
 
 h3, #vibes, .stars {
 	/*color: white;*/
-	
+/*	margin-top: -5px;*/
 	font-family: 'Source Code Pro', monospace;
+	margin-bottom:10px;
 }
 
 h3 {
@@ -188,11 +189,17 @@ h3 {
 
 }
 
-.user-profile{
-	/*margin-left: 80px;*/
-	background-color: rgba(0, 0, 0, 0.5);
+.block-3, .block-4 {
+	height: 300px;
+}
 
-	    padding-left: 60px;
+.user-profile{
+	margin-left: 80px;
+	background-color: rgba(0, 0, 0, 0.5);
+	/*height: 261px;*/
+	padding-left: 60px;
+	max-width: 600px;
+	margin-top: -1px;
 
 /*	padding-bottom: 60px;*/
 /*	margin-bottom: -10px;*/
@@ -204,8 +211,10 @@ h3 {
 	font-size: 18px;
 	background-color: white;
 	/*padding-bottom: 60px;*/
-	    max-width: 700px;
+	max-width: 700px;
 	padding-bottom: .8em;
+	margin-top: -1px;
+	padding-top: 3px;
 }
 .user-avatar{
 	margin-top: 25px;
@@ -214,6 +223,8 @@ h3 {
 }
 .user-info{
 	color: black;
+	margin-left: 30px;
+	margin-right:0px;
 	
 	/*border-top: black 3px solid;*/
 	/*margin-top: 10px;*/
@@ -254,6 +265,7 @@ h3 {
 h6 {
 	/*font-family: 'Roboto Condensed', sans-serif;*/
 	font-size: 16px;
+	color: white;
 }
 
 #user-text-review, h6, {
@@ -265,8 +277,9 @@ h6 {
 .user-other-ratings{
 	margin-right: 60px;
 	font-size: 18px;
-
-	color: black;
+	font-family: 'Anton', sans-serif;
+	color: white;
+	  font-family: 'Audiowide', cursive;
 }
 
 .noborder{
@@ -307,7 +320,7 @@ h6 {
 	font-family:  'Anton', sans-serif;
 	font-size: 16px;
 	padding: 14px;
-	margin-left: 200px;
+	margin-left: 150px;
 	margin-top: 30px;
 
 }
@@ -357,7 +370,10 @@ i.glyphicon.glyphicon-star{
 
 }
 
-.festival-sound ,.festival-security, .user-other-ratings, .festival-security {
+.festival-sound ,.festival-security, .festival-security {
 	font-family: 'Cinzel Decorative', cursive;
 	font-weight: bold;
+}
+#thumbs {
+	margin-left: 10px;
 }

@@ -202,11 +202,27 @@ const SetUp = (function () {
 
     var updateCreateCall = function (parsedFestival, i, cb) {
         if (i < parsedFestival.length) {
-            db.Festival.upsert(parsedFestival[i]).then((data) => {
-                i++;
-                console.log("updateCreated Festival : " + parsedFestival.name + " :/ " + data);
-                cb(parsedFestival, i, updateCreateCall);
+            db.Festival.find({
+                where: {
+                    name: parseFestival.name
+                }
+            }).then((dataFest) => {
+                if (dataFest === null) {
+                    db.Festival.create(parsedFestival[i]).then((data) => {
+                        i++;
+                        console.log("updateCreated Festival : " + parsedFestival.name + " :/ ");
+                        cb(parsedFestival, i, updateCreateCall);
+                    })
+                }
+                else{
+                    db.Festival.update(parsedFestival[i], {where: {name: parseFestival[i].name}}).then((data) => {
+                        i++;
+                        console.log("updateCreated Festival : " + parsedFestival.name + " :/ ");
+                        cb(parsedFestival, i, updateCreateCall);
+                    })
+                }
             })
+
         } else {
             console.log("***All festivals in spreadsheet wrote into database***");
             runScript();

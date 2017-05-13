@@ -42,7 +42,7 @@ module.exports = function (app) {
                     data: data
                 });
             } else {
-                console.log(data);
+                console.log("redirecting to!!!!!!!!!!!!!1" + data[0].name);
                 res.redirect("/festival/" + data[0].name);
             }
         });
@@ -75,9 +75,10 @@ module.exports = function (app) {
     app.get("/festival/:name", function (req, res) {
         // //Query db.festival for props
         var festivalName = req.params.name;
-        console.log("///////////////////////////////////" + festivalName + req.params.name);
-        var festObj;
+        console.log("///////////////////////////////////" + festivalName);
+        var festObj = {};
         var reviewArr = [];
+
         db.Festival.findOne({
             where: {
                 name: festivalName
@@ -99,9 +100,10 @@ module.exports = function (app) {
                     festival: festivalName
                 }
             }).then((dataRev) => {
-                //Pushes reviews into an array
-                console.log(dataRev.length);
-                if (dataRev.length >= 0) {
+
+                // //Pushes reviews into an array
+                // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  " +dataRev.length);
+                if (dataRev.length > 0) {
                     for (var i = 0; i < dataRev.length; i++) {
                         reviewArr.push({
                             overall: dataRev[i].overall,
@@ -114,11 +116,8 @@ module.exports = function (app) {
                         });
                     }
                     festObj["reviews"] = reviewArr;
-                    res.render("festivalEmbed", {
-                        data: data,
-                        // dataRev:dataRev,
-                    });
                     console.log("******************//////", festObj);
+
                 } else {
                     reviewArr.push({
                         overall: dataRev.overall,
@@ -131,23 +130,17 @@ module.exports = function (app) {
                         tags: dataRev.tags
                     });
                     festObj["reviews"] = reviewArr;
-                    res.render("festivalEmbed", {
-                        data: data,
-                        // dataRev:dataRev,
-                    });
-                    console.log("******************//else////", festObj);
-                };
-            });
-
-            //This sets prop reviews to the array we created
-            //Use each reviews inside pug to extract it
-
-
-            //Add Your render after this
-
-        });
+                    console.log("******************///else///", festObj);
+                }
+                res.render("festivalEmbed", {
+                    data: festObj,
+                    // dataRev:dataRev,
+                });
+            }).catch(err => res.status(404).send("Meeting not found"));
+        }).catch(err => res.status(404).send("Meeting not found"));
 
     });
+
     // app.get("/test", function(req, res){
     //     db.User.create({
     //         user_name: "Bob"

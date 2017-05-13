@@ -3,6 +3,7 @@ table {
     margin: 0 auto;
     width: 95%;
     border: solid 2px white;
+    border-radius: 10px;
 }
 
 th {
@@ -13,8 +14,21 @@ th {
     border-right: solid 2px black;;
 }
 
+a{
+    font-size: larger;
+    font-family: 'Cinzel Decorative', cursive;
+    text-decoration-line: none;
+    text-shadow: 0 0 3px white;
+    text-align: center;
+}
 
 img.circle {
-    width: 300px;
+    width: 200px;
     height: auto;
+    border-radius: 500px;
+    margin:10px;
+}
+
+tr:nth-child(odd) {
+    background-color: #212b37;
 }

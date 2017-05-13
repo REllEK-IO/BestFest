@@ -1,23 +1,23 @@
-mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review )
-	- var avatar = (typeof avatar === "undefined") ? "../assets/images/user1avatar.png" : avatar
-	- var datePosted = (typeof datePosted === "undefined") ? "May 1, 2017" : datePosted
+mixin userReview(datePosted, sound, security, cost, stars, review, thumbs)
+	-var datePosted = (typeof datePosted === undefined) ? "May 1, 2017" : datePosted
 	//- Edit all of these
-	- var sound = (typeof sound === "undefined") ? "Bumpin'" : sound
-	- var crowd = (typeof crowd === "undefined") ? "Chill" : crowd
-	- var security = (typeof security === "undefined") ? "Tight" : security
-	- var cost = (typeof cost === "undefined") ? "Average" : cost
+	-var sound = (typeof sound === undefined) ? "Bumpin'" : sound
+	-var security = (typeof security === undefined) ? "Tight" : security
 	//- 
-	-var stars = (typeof stars === "integer") ? stars : 4
-	- var review = (typeof review === "undefined") ? "Anon was here" : review
+	-var stars = (typeof stars === undefined) ? stars : 4
+	-var review = (typeof review === undefined) ? "Anon was here" : review
 	.row.user-info
-		.col-md-4.block-3.user-profile
-			img.user-avatar(src=avatar)
-			h6.date-header Date Posted #[span.date-posted datePosted]
+		.col-md-4.user-profile.text-info
+			img.user-avatar(src="../assets/images/user1avatar.png")
+			h6.date-header Date Posted 
+				span.date-posted !{datePosted}
 			ul#user-other-ratings
-				li.user-other-ratings SOUND: #[span.festival-sound sound]
-				//- li.user-other-ratings Crowd: #[span.festival-crowd crowd]
-				li.user-other-ratings SECURITY: #[span.festival-security security]
-				li.user-other-ratings COST: #[span.festival-security cost]
+				li.user-other-ratings Sound: 
+					span.festival-sound !{sound}
+				li.user-other-ratings Security: 
+					span.festival-security !{security}
+				li.user-other-ratings Cost: 
+					span.festival-cost !{cost}
 			//- span.divider
 		.col-md-8.block-4.user-review-container
 
@@ -34,7 +34,8 @@ mixin userReview(avatar, datePosted, sound, crowd, security, cost, stars, review
 			//- span#three-stars ☆
 			//- span#four-stars ☆
 			//- span#five-stars ☆
-			p#user-text-review Too many weirdos named Andrew and teeny-boppers named Karth. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante suscipit, hendrerit turpis vitae, euismod dolor. Curabitur eget dictum tortor. Fusce finibus ullamcorper nunc vitae malesuada. 
+			p#user-text-review 
+				span !{review}
 			span#like-button
 				i.glyphicon.glyphicon-thumbs-up 
 			.user-tags

@@ -12,96 +12,51 @@ module.exports = function(sequelize, DataTypes) {
         title: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Festival Name
         festival: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
         },
         year: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Overall score of festival
         overall: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        sound: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         cost: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.ENUM('Cheap','Average','Pricey'),
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         
         //Security Score
         security: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.ENUM('Tight','Average','Lax'),
             allowNull: true,
-            validate: {
-                len: [1]
-            }
-        },
-        //Cost Score
-        cost: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Sound Score
         sound: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.ENUM('Weak','Average','Bumpin'),
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Text body
         text_body: {
             type: DataTypes.TEXT,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Tags
         tags: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [1]
-            }
         },
         //Thumbs up of this post
         thumbs: {
             type: DataTypes.INTEGER,
             allowNull: true,
             defaultValue: 0,
-            validate: {
-                len: [1]
-            }
         },
         id: {
             type: DataTypes.INTEGER,

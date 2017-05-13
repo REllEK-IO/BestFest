@@ -6,16 +6,16 @@ mixin userReview(datePosted, sound, security, cost, stars, review, thumbs, title
 	//- 
 	-var review = (typeof review === undefined) ? "Anon was here" : review
 	.row.user-info
-		.col-md-4.user-profile.text-info
+		.col-md-4.block-3.user-profile.text-info
 			img.user-avatar(src="../assets/images/user1avatar.png")
 			h6.date-header Date Posted 
 				span.date-posted !{datePosted}
 			ul#user-other-ratings.text-info
-				li.user-other-ratings.text-info Sound: 
+				li.user-other-ratings.text-info SOUND: 
 					span.festival-sound.text-info !{sound}
-				li.user-other-ratings.text-info Security: 
+				li.user-other-ratings.text-info SECURITY: 
 					span.festival-security.text-info !{security}
-				li.user-other-ratings.text-info Cost: 
+				li.user-other-ratings.text-info COST: 
 					span.festival-cost.text-info !{cost}
 			//- span.divider
 
